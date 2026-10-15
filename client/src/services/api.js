@@ -1,4 +1,7 @@
-const API_BASE = 'http://localhost:8000/api'
+export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+export const API_BASE = `${API_URL}/api`
+
+
 
 // Fallback mock data matching Sunday Basic & FastAPI backend
 export const DEFAULT_CATEGORIES = [
@@ -395,7 +398,7 @@ export const DEFAULT_RECRUITMENT = [
 // API helpers with fallback
 export async function fetchProducts(category = '') {
   try {
-    const url = category && category !== 'all' 
+    const url = category && category !== 'all'
       ? `${API_BASE}/products?category=${encodeURIComponent(category)}`
       : `${API_BASE}/products`
     const res = await fetch(url)
@@ -458,3 +461,20 @@ export async function submitFranchiseForm(data) {
   }
   return { success: true, message: 'Đăng ký thành công! Chuyên viên nhượng quyền Weetini sẽ liên hệ tư vấn trong 24 giờ.' }
 }
+
+// Hàm gọi endpoint tùy chỉnh theo Cách 1
+export async function getYourData(endpoint = 'your-endpoint') {
+  try {
+    const response = await fetch(`${API_URL}/api/${endpoint}`)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.error(`Lỗi khi gọi API endpoint /api/${endpoint}:`, error)
+    return null
+  }
+}
+
+
