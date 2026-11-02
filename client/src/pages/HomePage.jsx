@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 import ProductCard from '../components/ProductCard'
 import ProductDetailModal from '../components/ProductDetailModal'
+import SplitText from '../components/SplitText'
 import { useCountUp } from '../hooks/useAnimations'
 import { fetchProducts, fetchCategories, DEFAULT_PRODUCTS, DEFAULT_CATEGORIES } from '../services/api'
 import { useLanguage } from '../context/LanguageContext'
@@ -63,20 +64,22 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden bg-[#fbfcf8]">
       {/* 1. HERO BANNER */}
-      <section className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center bg-gradient-to-r from-[#98B155] to-[#F6869D] text-white overflow-hidden pt-24 pb-16">
-        {/* Background Image with overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/hero-banner.jpg"
-            alt="Weetini Hero Banner"
-            className="w-full h-full object-cover object-center opacity-20 scale-105 animate-pulse-glow"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#2d371b]/50 via-black/10 to-[#F6869D]/20" />
-        </div>
+      <section className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center bg-gradient-to-br from-[#98B155] via-[#859f47] to-[#F6869D]/90 text-white overflow-hidden pt-24 pb-16">
+        {/* Ambient radial glows */}
+        <div className="absolute -top-28 -left-28 w-[500px] h-[500px] bg-white/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 right-0 w-[550px] h-[550px] bg-[#F6869D]/35 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-amber-300/20 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Ambient floating blur circles */}
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 right-0 w-80 h-80 bg-[#F6869D]/30 rounded-full blur-3xl pointer-events-none" />
+        {/* Subtle decorative flying tea leaves SVG in background */}
+        <div className="absolute top-16 left-8 opacity-25 pointer-events-none animate-float">
+          <Leaf size={48} className="text-white transform -rotate-45" />
+        </div>
+        <div className="absolute bottom-20 left-16 opacity-20 pointer-events-none animate-float" style={{ animationDelay: '1.2s' }}>
+          <Leaf size={36} className="text-white transform rotate-12" />
+        </div>
+        <div className="absolute top-28 right-16 opacity-25 pointer-events-none animate-float" style={{ animationDelay: '0.7s' }}>
+          <Leaf size={32} className="text-white transform rotate-45" />
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -87,11 +90,52 @@ export default function HomePage() {
                 <span>{t('home.heroBadge')}</span>
               </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-[family-name:var(--font-display)] leading-[1.1]">
-                {t('home.heroTitle1')} <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-rose-100 to-[#F6869D] drop-shadow-sm">
-                  {t('home.heroTitle2')}
-                </span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-tight font-[family-name:var(--font-display)] leading-[1.18] select-none">
+                <div className="block">
+                  <SplitText
+                    text={t('home.heroTitle1', 'MỖI NGỤM TƯƠI,')}
+                    className="text-3d-elevate"
+                    tag="span"
+                    effect="rise"
+                    splitType="chars"
+                    delay={35}
+                    duration={1.0}
+                    staggerFrom="start"
+                    trigger="load"
+                    hoverEffect="lift"
+                    textAlign="left"
+                  />
+                </div>
+                <div className="block mt-1 sm:mt-2">
+                  <SplitText
+                    text={t('home.heroTitle2', 'MỞ RA MỘT TẦNG')}
+                    className="text-3d-elevate"
+                    tag="span"
+                    effect="rise"
+                    splitType="chars"
+                    delay={35}
+                    duration={1.0}
+                    staggerFrom="start"
+                    trigger="load"
+                    hoverEffect="lift"
+                    textAlign="left"
+                  />
+                </div>
+                <div className="block mt-1 sm:mt-2">
+                  <SplitText
+                    text={t('home.heroTitle3', 'HƯƠNG VỊ.')}
+                    className="text-3d-elevate-pink"
+                    tag="span"
+                    effect="rise"
+                    splitType="chars"
+                    delay={35}
+                    duration={1.0}
+                    staggerFrom="start"
+                    trigger="load"
+                    hoverEffect="lift"
+                    textAlign="left"
+                  />
+                </div>
               </h1>
 
               <p className="text-base sm:text-lg text-lime-100/95 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
@@ -104,60 +148,164 @@ export default function HomePage() {
                   to="/menu"
                   className="w-full sm:w-auto px-8 py-4 rounded-full bg-accent-gold hover:bg-accent-gold-light text-white font-bold text-center tracking-wide transition-all duration-300 shadow-lg hover:shadow-accent-gold/30 hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
-                  <span>{t('common.exploreMenu')}</span>
+                  <span>{t('home.heroBtnExplore', t('common.exploreMenu'))}</span>
                   <ArrowRight size={18} />
                 </Link>
 
                 <Link
-                  to="/he-thong-cua-hang"
+                  to="/menu"
                   className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-center border border-white/30 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
                   <MapPin size={18} />
-                  <span>{t('common.findStores')}</span>
+                  <span>{t('home.heroBtnChoose', t('common.findStores'))}</span>
                 </Link>
               </div>
 
               {/* Trust badges */}
               <div className="pt-8 grid grid-cols-3 gap-4 border-t border-white/15 max-w-lg mx-auto lg:mx-0">
                 <div className="text-center lg:text-left">
-                  <div className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-display)] text-accent-gold">{t('home.heroStatsStores')}</div>
-                  <div className="text-xs text-white/70">{t('home.heroStatsStoresLabel')}</div>
+                  <div className="flex items-center justify-center lg:justify-start gap-1.5 text-accent-gold font-bold text-sm sm:text-base font-[family-name:var(--font-display)]">
+                    <Leaf size={16} />
+                    <span>{t('home.heroFeatureTea', 'Trà Chọn Lọc')}</span>
+                  </div>
+                  <div className="text-xs text-white/70 mt-1">{t('home.heroStatsTeaLabel')}</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-display)] text-accent-gold">{t('home.heroStatsTea')}</div>
-                  <div className="text-xs text-white/70">{t('home.heroStatsTeaLabel')}</div>
+                  <div className="flex items-center justify-center lg:justify-start gap-1.5 text-accent-gold font-bold text-sm sm:text-base font-[family-name:var(--font-display)]">
+                    <Sparkles size={16} />
+                    <span>{t('home.heroFeatureFruit', 'Trái Cây Tươi')}</span>
+                  </div>
+                  <div className="text-xs text-white/70 mt-1">{t('home.heroStatsStoresLabel')}</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-display)] text-accent-gold">{t('home.heroStatsCups')}</div>
-                  <div className="text-xs text-white/70">{t('home.heroStatsCupsLabel')}</div>
+                  <div className="flex items-center justify-center lg:justify-start gap-1.5 text-accent-gold font-bold text-sm sm:text-base font-[family-name:var(--font-display)]">
+                    <Clock size={16} />
+                    <span>{t('home.heroFeatureBrew', 'Pha Chế Mỗi Ngày')}</span>
+                  </div>
+                  <div className="text-xs text-white/70 mt-1">{t('home.heroStatsCupsLabel')}</div>
                 </div>
               </div>
             </div>
 
-            {/* Right cup image column */}
-            <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-72 sm:w-80 lg:w-96 aspect-square flex items-center justify-center">
-                {/* Glowing ring */}
-                <div className="absolute inset-0 rounded-full border-2 border-dashed border-accent-gold/40 animate-[spin_20s_linear_infinite]" />
-                <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-accent-gold/20 to-primary-400/20 blur-xl" />
+            {/* Right cup image column: Transparent Cup + Orbiting Ingredients (lui phải + to hơn) */}
+            <div className="lg:col-span-5 flex justify-center items-center relative py-6 lg:translate-x-8 xl:translate-x-12">
+              <div className="relative w-88 sm:w-[440px] lg:w-[480px] xl:w-[510px] aspect-[4/5] flex items-center justify-center select-none pointer-events-none">
+                {/* Ambient Soft Glow Behind Cup */}
+                <div className="absolute inset-8 rounded-full bg-gradient-to-tr from-amber-300/25 via-rose-300/30 to-pink-500/25 blur-3xl pointer-events-none" />
 
-                <img
-                  src="/images/products/default-milk-tea.jpg"
-                  alt="Weetini Signature Milk Tea"
-                  className="relative z-10 w-full h-full object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.6)] animate-float"
-                />
+                {/* Subtle orbit circle */}
+                <div className="absolute inset-2 sm:inset-4 rounded-full border border-dashed border-white/20 animate-[spin_50s_linear_infinite] pointer-events-none" />
 
-                {/* Floating pill badge */}
-                <div className="absolute -bottom-2 -left-4 z-20 bg-white/90 backdrop-blur-md text-gray-900 px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-3 border border-white/40">
-                  <div className="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white">
-                    <Flame size={20} />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-500 font-medium">{t('home.heroPillLabel')}</div>
-                    <div className="text-sm font-bold text-gray-900 font-[family-name:var(--font-display)]">
-                      {t('home.heroPillName')}
-                    </div>
-                  </div>
+                {/* ==================================================== */}
+                {/* 1. CENTERPIECE: WEETINI CUP (tini-rmbg.png)           */}
+                {/* ==================================================== */}
+                <div className="relative z-20 flex flex-col items-center pointer-events-none">
+                  <img
+                    src="/images/hero/tini-rmbg.png"
+                    alt="Weetini Signature Cup"
+                    className="w-56 sm:w-68 lg:w-76 xl:w-80 h-auto object-contain animate-hero-cup drop-shadow-[0_20px_35px_rgba(0,0,0,0.28)] pointer-events-none select-none"
+                  />
+                  {/* Soft realistic cup base shadow */}
+                  <div className="w-48 sm:w-60 lg:w-68 h-5 bg-black/25 rounded-full blur-md -mt-1 pointer-events-none transform scale-y-50" />
+                </div>
+
+                {/* ==================================================== */}
+                {/* 2. 3D ORBITING INGREDIENTS AROUND THE CUP            */}
+                {/* 7 nguyên liệu chia đều ~51.4° quanh vòng tròn 360°,  */}
+                {/* cách nhau 2.0s trên chu kỳ 14s, so le độ cao quanh thân ly */}
+                {/* ==================================================== */}
+
+                {/* 1. Mốc 0.0s: Cành lá trà tươi (b5.png) - Cao gần miệng cốc (-105px) */}
+                <div 
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                  style={{ '--orbit-y': '-105px', animationDelay: '0s' }}
+                >
+                  <img
+                    src="/images/hero/b5.png"
+                    alt="Cành lá trà tươi"
+                    className="w-18 sm:w-22 lg:w-25 h-auto object-contain drop-shadow-[0_14px_22px_rgba(0,0,0,0.35)] pointer-events-none select-none"
+                  />
+                </div>
+
+                {/* 2. Mốc -2.0s: Vệt sữa dâu xoáy (b8.png) - Lưng chừng dưới (+35px) */}
+                <div 
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                  style={{ '--orbit-y': '35px', animationDelay: '-2.0s' }}
+                >
+                  <img
+                    src="/images/hero/b8.png"
+                    alt="Vệt sữa dâu xoáy mềm"
+                    className="w-24 sm:w-28 lg:w-34 xl:w-36 h-auto object-contain drop-shadow-[0_16px_25px_rgba(0,0,0,0.35)] pointer-events-none select-none"
+                  />
+                </div>
+
+                {/* 3. Mốc -4.0s: Búp trà non (b2.png) - Lưng chừng trên (-60px) */}
+                <div 
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                  style={{ '--orbit-y': '-60px', animationDelay: '-4.0s' }}
+                >
+                  <img
+                    src="/images/hero/b2.png"
+                    alt="Búp trà xanh non"
+                    className="w-12 sm:w-14 lg:w-16 h-auto object-contain drop-shadow-[0_8px_14px_rgba(0,0,0,0.28)] pointer-events-none select-none"
+                  />
+                </div>
+
+                {/* 4. Mốc -6.0s: Dòng sữa trắng uốn lượn (mi.png) - Tầng dưới thân cốc (+75px) */}
+                <div 
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                  style={{ '--orbit-y': '75px', animationDelay: '-6.0s' }}
+                >
+                  <img
+                    src="/images/hero/mi.png"
+                    alt="Dòng sữa tươi bồng bềnh"
+                    className="w-36 sm:w-44 lg:w-52 xl:w-56 h-auto object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.32)] pointer-events-none select-none"
+                  />
+                </div>
+
+                {/* 5. Mốc -8.0s: Chiếc lá trà vàng óng (b1.png) - Lưng chừng giữa (-20px) */}
+                <div 
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                  style={{ '--orbit-y': '-20px', animationDelay: '-8.0s' }}
+                >
+                  <img
+                    src="/images/hero/b1.png"
+                    alt="Lá trà vàng óng"
+                    className="w-11 sm:w-13 lg:w-15 h-auto object-contain drop-shadow-[0_8px_14px_rgba(0,0,0,0.3)] pointer-events-none select-none"
+                  />
+                </div>
+
+                {/* 6. Mốc -10.0s: Quả dâu tây đỏ mọng (strawberry_bottom.png) - Sát đáy cốc (+105px) */}
+                <div 
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                  style={{ '--orbit-y': '105px', animationDelay: '-10.0s' }}
+                >
+                  <img
+                    src="/images/hero/strawberry_bottom.png"
+                    alt="Quả dâu tây đỏ mọng"
+                    className="w-15 sm:w-18 lg:w-20 h-auto object-contain drop-shadow-[0_14px_22px_rgba(0,0,0,0.35)] pointer-events-none select-none"
+                  />
+                </div>
+
+                {/* 7. Mốc -12.0s: Làn sóng trà matcha (b4.png) - Chính giữa thân cốc (0px) */}
+                <div 
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                  style={{ '--orbit-y': '0px', animationDelay: '-12.0s' }}
+                >
+                  <img
+                    src="/images/hero/b4.png"
+                    alt="Làn sóng trà matcha"
+                    className="w-18 sm:w-22 lg:w-25 h-auto object-contain drop-shadow-[0_12px_20px_rgba(0,0,0,0.3)] pointer-events-none select-none"
+                  />
+                </div>
+
+                {/* Freshly Made stamp badge - anchored decorative seal */}
+                <div className="absolute top-4 -right-4 sm:-right-6 lg:-right-8 z-35 animate-hero-badge pointer-events-none">
+                  <img
+                    src="/images/hero/badge.png"
+                    alt="Freshly Made Weetini"
+                    className="w-16 sm:w-20 lg:w-22 h-auto object-contain drop-shadow-[0_10px_16px_rgba(0,0,0,0.25)] pointer-events-none select-none"
+                  />
                 </div>
               </div>
             </div>
@@ -335,8 +483,8 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-4 pt-2">
                 <button
                   onClick={() => {
-                    const boItem = products.find(p => p.slug === 'bo-dua-non') || products[0]
-                    handleProductSelect(localizeProduct(boItem))
+                    const tiniItem = products.find(p => p.slug === 'wee-tini-subarashii') || products[0]
+                    handleProductSelect(localizeProduct(tiniItem))
                   }}
                   className="px-7 py-3.5 bg-accent-gold hover:bg-accent-gold-light text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:-translate-y-0.5 cursor-pointer"
                 >
@@ -352,15 +500,15 @@ export default function HomePage() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative">
-                <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-[#607334]/80 flex items-center justify-center p-6 border-4 border-[#7d9541]/60 shadow-2xl">
+              <div className="relative group">
+                <div className="w-64 sm:w-72 md:w-80 aspect-[3/4] rounded-3xl bg-white/15 backdrop-blur-md p-3 border-2 border-white/40 shadow-2xl overflow-hidden flex items-center justify-center">
                   <img
-                    src="/images/products/default-matcha.jpg"
-                    alt="Avocado Collection"
-                    className="w-full h-full object-contain animate-float"
+                    src="/images/products/tini.jpg"
+                    alt="Wee Tini Signature"
+                    className="w-full h-full object-cover rounded-2xl drop-shadow-xl transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="absolute -top-4 -right-4 bg-accent-gold text-white font-extrabold text-sm px-4 py-2 rounded-2xl shadow-xl">
+                <div className="absolute -top-3 -right-3 bg-accent-gold text-white font-extrabold text-sm px-4 py-2 rounded-2xl shadow-xl ring-2 ring-white">
                   {t('home.spotlightPrice')}
                 </div>
               </div>

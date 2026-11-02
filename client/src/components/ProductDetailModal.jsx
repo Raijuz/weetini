@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { X, Plus, Minus, Check, Sparkles, AlertCircle } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
+import { useCart } from '../context/CartContext'
 
 export default function ProductDetailModal({ product, isOpen, onClose }) {
   const { lang, t, dict, localizeProduct, formatCurrency } = useLanguage()
+  const { addToCart, openCart } = useCart()
   const localized = localizeProduct(product)
 
   const [size, setSize] = useState('L')
@@ -33,11 +35,32 @@ export default function ProductDetailModal({ product, isOpen, onClose }) {
   }
 
   const handleAddToCart = () => {
+    const toppingsObjects = selectedToppings
+      .map((topId) => toppingsList.find((t) => t.id === topId))
+      .filter(Boolean)
+
+    const cartItemId = `${localized.id || localized.slug}-${size}-${ice}-${sugar}-${[...selectedToppings].sort().join('_')}`
+
+    addToCart({
+      id: cartItemId,
+      productId: localized.id,
+      name: localized.name,
+      price: localized.price,
+      size,
+      ice,
+      sugar,
+      toppings: toppingsObjects,
+      quantity,
+      unitPrice,
+      totalPrice,
+      image: localized.image || '/images/products/default-milk-tea.jpg',
+    })
+
     setIsAdded(true)
     setTimeout(() => {
       setIsAdded(false)
       onClose()
-    }, 1200)
+    }, 450)
   }
 
   const iceOptions = lang === 'en'

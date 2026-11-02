@@ -9,6 +9,10 @@ import MenuPage from './pages/MenuPage'
 import StoresPage from './pages/StoresPage'
 import FranchisePage from './pages/FranchisePage'
 import RecruitmentPage from './pages/RecruitmentPage'
+import CartDrawer from './components/CartDrawer'
+import CheckoutModal from './components/CheckoutModal'
+import FloatingCartButton from './components/FloatingCartButton'
+import CartToast from './components/CartToast'
 import { useLanguage } from './context/LanguageContext'
 
 function App() {
@@ -24,6 +28,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <ScrollToTop />
+      <CartToast />
       <Header />
       <main className="flex-1">
         <Routes>
@@ -44,6 +49,9 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <CartDrawer />
+      <CheckoutModal />
+      <FloatingCartButton />
     </div>
   )
 }
