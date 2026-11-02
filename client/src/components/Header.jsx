@@ -105,17 +105,17 @@ export default function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2">
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-2">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path
                 return (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className="relative px-3 py-2 uppercase tracking-wider rounded-lg group transition-all duration-300"
+                    className="relative px-2 xl:px-3 py-1.5 xl:py-2 uppercase tracking-wider rounded-lg group transition-all duration-300"
                   >
                     <span
-                      className={`nav-turnio-text text-sm xl:text-[15px] ${
+                      className={`nav-turnio-text text-xs xl:text-sm 2xl:text-[15px] ${
                         isActive ? 'nav-turnio-active scale-105' : 'opacity-95'
                       }`}
                     >

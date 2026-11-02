@@ -230,182 +230,273 @@
 
 /* =========================================================
    HERO CUP & 3D ORBITING CAROUSEL ANIMATIONS
-   Đồng tốc 12s, chia đều 360 độ (mỗi góc 60 độ),
-   các chiều cao so le quanh thân cốc không đè lên nhau,
-   bán kính mở rộng (Rx: 210px) và không dừng khi rê chuột
+   Đồng tốc 14s (7 nguyên liệu chia đều 51.4 độ),
+   Responsive 3 cấp (Mobile, Tablet/Laptop 1024px-1279px, Desktop lớn 1280px+)
+   Không đè lên nhau, không chèn chữ khi thu phóng trình duyệt
    ========================================================= */
 
+/* 1. Large Desktop (>=1280px) */
 @keyframes orbitCarousel {
   0.0% {
-    transform: translate(calc(-50% + 210.0px), calc(-50% + 0.0px)) scale(1.0) rotate(8.0deg);
+    transform: translate(calc(-50% + 205.0px), calc(-50% + 0.0px)) scale(1.0) rotate(8.0deg);
     z-index: 30;
     opacity: 0.94;
   }
   6.2% {
-    transform: translate(calc(-50% + 194.0px), calc(-50% + 11.5px)) scale(1.057) rotate(7.4deg);
+    transform: translate(calc(-50% + 189.4px), calc(-50% + 10.7px)) scale(1.057) rotate(7.4deg);
     z-index: 30;
     opacity: 0.96;
   }
   12.5% {
-    transform: translate(calc(-50% + 148.5px), calc(-50% + 21.2px)) scale(1.106) rotate(5.7deg);
+    transform: translate(calc(-50% + 145.0px), calc(-50% + 19.8px)) scale(1.106) rotate(5.7deg);
     z-index: 30;
     opacity: 0.98;
   }
   18.8% {
-    transform: translate(calc(-50% + 80.4px), calc(-50% + 27.7px)) scale(1.139) rotate(3.1deg);
+    transform: translate(calc(-50% + 78.5px), calc(-50% + 25.9px)) scale(1.139) rotate(3.1deg);
     z-index: 30;
     opacity: 1.0;
   }
   25.0% {
-    transform: translate(calc(-50% + 0.0px), calc(-50% + 30.0px)) scale(1.15) rotate(0.0deg);
+    transform: translate(calc(-50% + 0.0px), calc(-50% + 28.0px)) scale(1.15) rotate(0.0deg);
     z-index: 30;
     opacity: 1.0;
   }
   31.2% {
-    transform: translate(calc(-50% - 80.4px), calc(-50% + 27.7px)) scale(1.139) rotate(-3.1deg);
+    transform: translate(calc(-50% - 78.5px), calc(-50% + 25.9px)) scale(1.139) rotate(-3.1deg);
     z-index: 30;
     opacity: 1.0;
   }
   37.5% {
-    transform: translate(calc(-50% - 148.5px), calc(-50% + 21.2px)) scale(1.106) rotate(-5.7deg);
+    transform: translate(calc(-50% - 145.0px), calc(-50% + 19.8px)) scale(1.106) rotate(-5.7deg);
     z-index: 30;
     opacity: 0.98;
   }
   43.8% {
-    transform: translate(calc(-50% - 194.0px), calc(-50% + 11.5px)) scale(1.057) rotate(-7.4deg);
+    transform: translate(calc(-50% - 189.4px), calc(-50% + 10.7px)) scale(1.057) rotate(-7.4deg);
     z-index: 30;
     opacity: 0.96;
   }
   50.0% {
-    transform: translate(calc(-50% - 210.0px), calc(-50% + 0.0px)) scale(1.0) rotate(-8.0deg);
+    transform: translate(calc(-50% - 205.0px), calc(-50% + 0.0px)) scale(1.0) rotate(-8.0deg);
     z-index: 30;
     opacity: 0.94;
   }
   56.2% {
-    transform: translate(calc(-50% - 194.0px), calc(-50% - 11.5px)) scale(0.943) rotate(-7.4deg);
+    transform: translate(calc(-50% - 189.4px), calc(-50% - 10.7px)) scale(0.943) rotate(-7.4deg);
     z-index: 10;
     opacity: 0.9;
   }
   62.5% {
-    transform: translate(calc(-50% - 148.5px), calc(-50% - 21.2px)) scale(0.894) rotate(-5.7deg);
+    transform: translate(calc(-50% - 145.0px), calc(-50% - 19.8px)) scale(0.894) rotate(-5.7deg);
     z-index: 10;
     opacity: 0.89;
   }
   68.8% {
-    transform: translate(calc(-50% - 80.4px), calc(-50% - 27.7px)) scale(0.861) rotate(-3.1deg);
+    transform: translate(calc(-50% - 78.5px), calc(-50% - 25.9px)) scale(0.861) rotate(-3.1deg);
     z-index: 10;
     opacity: 0.88;
   }
   75.0% {
-    transform: translate(calc(-50% + 0.0px), calc(-50% - 30.0px)) scale(0.85) rotate(0.0deg);
+    transform: translate(calc(-50% + 0.0px), calc(-50% - 28.0px)) scale(0.85) rotate(0.0deg);
     z-index: 10;
     opacity: 0.88;
   }
   81.2% {
-    transform: translate(calc(-50% + 80.4px), calc(-50% - 27.7px)) scale(0.861) rotate(3.1deg);
+    transform: translate(calc(-50% + 78.5px), calc(-50% - 25.9px)) scale(0.861) rotate(3.1deg);
     z-index: 10;
     opacity: 0.88;
   }
   87.5% {
-    transform: translate(calc(-50% + 148.5px), calc(-50% - 21.2px)) scale(0.894) rotate(5.7deg);
+    transform: translate(calc(-50% + 145.0px), calc(-50% - 19.8px)) scale(0.894) rotate(5.7deg);
     z-index: 10;
     opacity: 0.89;
   }
   93.8% {
-    transform: translate(calc(-50% + 194.0px), calc(-50% - 11.5px)) scale(0.943) rotate(7.4deg);
+    transform: translate(calc(-50% + 189.4px), calc(-50% - 10.7px)) scale(0.943) rotate(7.4deg);
     z-index: 10;
     opacity: 0.9;
   }
   100.0% {
-    transform: translate(calc(-50% + 210.0px), calc(-50% + 0.0px)) scale(1.0) rotate(8.0deg);
-    z-index: 30;
-    opacity: 0.94;
+    transform: translate(calc(-50% + 205.0px), calc(-50% + 0.0px)) scale(1.0) rotate(8.0deg);
+    z-index: 10;
+    opacity: 0.92;
   }
 }
 
-@keyframes orbitCarouselMobile {
+/* 2. Medium Screens & Laptops (641px - 1279px) */
+@keyframes orbitCarouselMedium {
   0.0% {
-    transform: translate(calc(-50% + 155.0px), calc(-50% + 0.0px)) scale(1.0) rotate(8.0deg);
+    transform: translate(calc(-50% + 165.0px), calc(-50% + 0.0px)) scale(1.0) rotate(8.0deg);
     z-index: 30;
     opacity: 0.94;
   }
   6.2% {
-    transform: translate(calc(-50% + 143.2px), calc(-50% + 8.4px)) scale(1.057) rotate(7.4deg);
+    transform: translate(calc(-50% + 152.4px), calc(-50% + 8.8px)) scale(1.057) rotate(7.4deg);
     z-index: 30;
     opacity: 0.96;
   }
   12.5% {
-    transform: translate(calc(-50% + 109.6px), calc(-50% + 15.6px)) scale(1.106) rotate(5.7deg);
+    transform: translate(calc(-50% + 116.7px), calc(-50% + 16.3px)) scale(1.106) rotate(5.7deg);
     z-index: 30;
     opacity: 0.98;
   }
   18.8% {
-    transform: translate(calc(-50% + 59.3px), calc(-50% + 20.3px)) scale(1.139) rotate(3.1deg);
+    transform: translate(calc(-50% + 63.1px), calc(-50% + 21.2px)) scale(1.139) rotate(3.1deg);
     z-index: 30;
     opacity: 1.0;
   }
   25.0% {
-    transform: translate(calc(-50% + 0.0px), calc(-50% + 22.0px)) scale(1.15) rotate(0.0deg);
+    transform: translate(calc(-50% + 0.0px), calc(-50% + 23.0px)) scale(1.15) rotate(0.0deg);
     z-index: 30;
     opacity: 1.0;
   }
   31.2% {
-    transform: translate(calc(-50% - 59.3px), calc(-50% + 20.3px)) scale(1.139) rotate(-3.1deg);
+    transform: translate(calc(-50% - 63.1px), calc(-50% + 21.2px)) scale(1.139) rotate(-3.1deg);
     z-index: 30;
     opacity: 1.0;
   }
   37.5% {
-    transform: translate(calc(-50% - 109.6px), calc(-50% + 15.6px)) scale(1.106) rotate(-5.7deg);
+    transform: translate(calc(-50% - 116.7px), calc(-50% + 16.3px)) scale(1.106) rotate(-5.7deg);
     z-index: 30;
     opacity: 0.98;
   }
   43.8% {
-    transform: translate(calc(-50% - 143.2px), calc(-50% + 8.4px)) scale(1.057) rotate(-7.4deg);
+    transform: translate(calc(-50% - 152.4px), calc(-50% + 8.8px)) scale(1.057) rotate(-7.4deg);
     z-index: 30;
     opacity: 0.96;
   }
   50.0% {
-    transform: translate(calc(-50% - 155.0px), calc(-50% + 0.0px)) scale(1.0) rotate(-8.0deg);
+    transform: translate(calc(-50% - 165.0px), calc(-50% + 0.0px)) scale(1.0) rotate(-8.0deg);
     z-index: 30;
     opacity: 0.94;
   }
   56.2% {
-    transform: translate(calc(-50% - 143.2px), calc(-50% - 8.4px)) scale(0.943) rotate(-7.4deg);
+    transform: translate(calc(-50% - 152.4px), calc(-50% - 8.8px)) scale(0.943) rotate(-7.4deg);
     z-index: 10;
     opacity: 0.9;
   }
   62.5% {
-    transform: translate(calc(-50% - 109.6px), calc(-50% - 15.6px)) scale(0.894) rotate(-5.7deg);
+    transform: translate(calc(-50% - 116.7px), calc(-50% - 16.3px)) scale(0.894) rotate(-5.7deg);
     z-index: 10;
     opacity: 0.89;
   }
   68.8% {
-    transform: translate(calc(-50% - 59.3px), calc(-50% - 20.3px)) scale(0.861) rotate(-3.1deg);
+    transform: translate(calc(-50% - 63.1px), calc(-50% - 21.2px)) scale(0.861) rotate(-3.1deg);
     z-index: 10;
     opacity: 0.88;
   }
   75.0% {
-    transform: translate(calc(-50% + 0.0px), calc(-50% - 22.0px)) scale(0.85) rotate(0.0deg);
+    transform: translate(calc(-50% + 0.0px), calc(-50% - 23.0px)) scale(0.85) rotate(0.0deg);
     z-index: 10;
     opacity: 0.88;
   }
   81.2% {
-    transform: translate(calc(-50% + 59.3px), calc(-50% - 20.3px)) scale(0.861) rotate(3.1deg);
+    transform: translate(calc(-50% + 63.1px), calc(-50% - 21.2px)) scale(0.861) rotate(3.1deg);
     z-index: 10;
     opacity: 0.88;
   }
   87.5% {
-    transform: translate(calc(-50% + 109.6px), calc(-50% - 15.6px)) scale(0.894) rotate(5.7deg);
+    transform: translate(calc(-50% + 116.7px), calc(-50% - 16.3px)) scale(0.894) rotate(5.7deg);
     z-index: 10;
     opacity: 0.89;
   }
   93.8% {
-    transform: translate(calc(-50% + 143.2px), calc(-50% - 8.4px)) scale(0.943) rotate(7.4deg);
+    transform: translate(calc(-50% + 152.4px), calc(-50% - 8.8px)) scale(0.943) rotate(7.4deg);
     z-index: 10;
     opacity: 0.9;
   }
   100.0% {
-    transform: translate(calc(-50% + 155.0px), calc(-50% + 0.0px)) scale(1.0) rotate(8.0deg);
+    transform: translate(calc(-50% + 165.0px), calc(-50% + 0.0px)) scale(1.0) rotate(8.0deg);
+    z-index: 10;
+    opacity: 0.92;
+  }
+}
+
+/* 3. Mobile (<640px) */
+@keyframes orbitCarouselMobile {
+  0.0% {
+    transform: translate(calc(-50% + 132.0px), calc(-50% + 0.0px)) scale(1.0) rotate(8.0deg);
+    z-index: 30;
+    opacity: 0.94;
+  }
+  6.2% {
+    transform: translate(calc(-50% + 122.0px), calc(-50% + 6.9px)) scale(1.057) rotate(7.4deg);
+    z-index: 30;
+    opacity: 0.96;
+  }
+  12.5% {
+    transform: translate(calc(-50% + 93.3px), calc(-50% + 12.7px)) scale(1.106) rotate(5.7deg);
+    z-index: 30;
+    opacity: 0.98;
+  }
+  18.8% {
+    transform: translate(calc(-50% + 50.5px), calc(-50% + 16.6px)) scale(1.139) rotate(3.1deg);
+    z-index: 30;
+    opacity: 1.0;
+  }
+  25.0% {
+    transform: translate(calc(-50% + 0.0px), calc(-50% + 18.0px)) scale(1.15) rotate(0.0deg);
+    z-index: 30;
+    opacity: 1.0;
+  }
+  31.2% {
+    transform: translate(calc(-50% - 50.5px), calc(-50% + 16.6px)) scale(1.139) rotate(-3.1deg);
+    z-index: 30;
+    opacity: 1.0;
+  }
+  37.5% {
+    transform: translate(calc(-50% - 93.3px), calc(-50% + 12.7px)) scale(1.106) rotate(-5.7deg);
+    z-index: 30;
+    opacity: 0.98;
+  }
+  43.8% {
+    transform: translate(calc(-50% - 122.0px), calc(-50% + 6.9px)) scale(1.057) rotate(-7.4deg);
+    z-index: 30;
+    opacity: 0.96;
+  }
+  50.0% {
+    transform: translate(calc(-50% - 132.0px), calc(-50% + 0.0px)) scale(1.0) rotate(-8.0deg);
+    z-index: 30;
+    opacity: 0.94;
+  }
+  56.2% {
+    transform: translate(calc(-50% - 122.0px), calc(-50% - 6.9px)) scale(0.943) rotate(-7.4deg);
+    z-index: 10;
+    opacity: 0.9;
+  }
+  62.5% {
+    transform: translate(calc(-50% - 93.3px), calc(-50% - 12.7px)) scale(0.894) rotate(-5.7deg);
+    z-index: 10;
+    opacity: 0.89;
+  }
+  68.8% {
+    transform: translate(calc(-50% - 50.5px), calc(-50% - 16.6px)) scale(0.861) rotate(-3.1deg);
+    z-index: 10;
+    opacity: 0.88;
+  }
+  75.0% {
+    transform: translate(calc(-50% + 0.0px), calc(-50% - 18.0px)) scale(0.85) rotate(0.0deg);
+    z-index: 10;
+    opacity: 0.88;
+  }
+  81.2% {
+    transform: translate(calc(-50% + 50.5px), calc(-50% - 16.6px)) scale(0.861) rotate(3.1deg);
+    z-index: 10;
+    opacity: 0.88;
+  }
+  87.5% {
+    transform: translate(calc(-50% + 93.3px), calc(-50% - 12.7px)) scale(0.894) rotate(5.7deg);
+    z-index: 10;
+    opacity: 0.89;
+  }
+  93.8% {
+    transform: translate(calc(-50% + 122.0px), calc(-50% - 6.9px)) scale(0.943) rotate(7.4deg);
+    z-index: 10;
+    opacity: 0.9;
+  }
+  100.0% {
+    transform: translate(calc(-50% + 132.0px), calc(-50% + 0.0px)) scale(1.0) rotate(8.0deg);
     z-index: 30;
     opacity: 0.94;
   }
@@ -450,15 +541,25 @@
   pointer-events: none;
 }
 
-
 .animate-orbit-carousel {
   animation-name: orbitCarousel;
   animation-duration: 14s;
 }
 
+/* Tablet & Intermediate Laptops / Zoomed in (641px - 1279px) */
+@media (min-width: 641px) and (max-width: 1279px) {
+  .orbit-fruit {
+    top: calc(50% + var(--orbit-y, 0px) * 0.8);
+  }
+  .animate-orbit-carousel {
+    animation-name: orbitCarouselMedium;
+  }
+}
+
+/* Mobile (<640px) */
 @media (max-width: 640px) {
   .orbit-fruit {
-    top: calc(50% + var(--orbit-y, 0px) * 0.75);
+    top: calc(50% + var(--orbit-y, 0px) * 0.65);
   }
   .animate-orbit-carousel {
     animation-name: orbitCarouselMobile;

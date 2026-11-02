@@ -82,15 +82,15 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-10 2xl:gap-14 items-center">
             {/* Left text column */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-xs sm:text-sm font-semibold text-white tracking-wide">
+            <div className="lg:col-span-7 space-y-4 sm:space-y-6 lg:space-y-5 xl:space-y-7 text-center lg:text-left z-10">
+              <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/20 text-xs sm:text-sm font-semibold text-white tracking-wide">
                 <Sparkles size={16} className="text-[#F6869D]" />
                 <span>{t('home.heroBadge')}</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-tight font-[family-name:var(--font-display)] leading-[1.18] select-none">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[42px] xl:text-[54px] 2xl:text-[64px] font-black tracking-tight font-[family-name:var(--font-display)] leading-[1.18] select-none">
                 <div className="block">
                   <SplitText
                     text={t('home.heroTitle1', 'MỖI NGỤM TƯƠI,')}
@@ -138,15 +138,15 @@ export default function HomePage() {
                 </div>
               </h1>
 
-              <p className="text-base sm:text-lg text-lime-100/95 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+              <p className="text-sm sm:text-base lg:text-base xl:text-lg text-lime-100/95 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
                 {t('home.heroDesc')}
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 sm:pt-4">
                 <Link
                   to="/menu"
-                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-accent-gold hover:bg-accent-gold-light text-white font-bold text-center tracking-wide transition-all duration-300 shadow-lg hover:shadow-accent-gold/30 hover:-translate-y-1 flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-accent-gold hover:bg-accent-gold-light text-white font-bold text-center tracking-wide transition-all duration-300 shadow-lg hover:shadow-accent-gold/30 hover:-translate-y-1 flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
                   <span>{t('home.heroBtnExplore', t('common.exploreMenu'))}</span>
                   <ArrowRight size={18} />
@@ -154,44 +154,44 @@ export default function HomePage() {
 
                 <Link
                   to="/menu"
-                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-center border border-white/30 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-center border border-white/30 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
                   <MapPin size={18} />
                   <span>{t('home.heroBtnChoose', t('common.findStores'))}</span>
                 </Link>
               </div>
 
-              {/* Trust badges */}
-              <div className="pt-8 grid grid-cols-3 gap-4 border-t border-white/15 max-w-lg mx-auto lg:mx-0">
-                <div className="text-center lg:text-left">
-                  <div className="flex items-center justify-center lg:justify-start gap-1.5 text-accent-gold font-bold text-sm sm:text-base font-[family-name:var(--font-display)]">
-                    <Leaf size={16} />
-                    <span>{t('home.heroFeatureTea', 'Trà Chọn Lọc')}</span>
+              {/* Trust badges - responsive không tràn và không đè chữ */}
+              <div className="pt-6 sm:pt-8 grid grid-cols-3 gap-2 sm:gap-4 lg:gap-3 xl:gap-5 border-t border-white/15 max-w-xl mx-auto lg:mx-0">
+                <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
+                  <div className="flex items-center gap-1.5 text-accent-gold font-bold text-xs sm:text-sm lg:text-xs xl:text-sm font-[family-name:var(--font-display)] leading-tight">
+                    <Leaf size={15} className="shrink-0" />
+                    <span className="whitespace-nowrap">{t('home.heroFeatureTea', 'Trà Chọn Lọc')}</span>
                   </div>
-                  <div className="text-xs text-white/70 mt-1">{t('home.heroStatsTeaLabel')}</div>
+                  <div className="text-[11px] sm:text-xs text-white/75 mt-1 leading-normal">{t('home.heroStatsTeaLabel')}</div>
                 </div>
-                <div className="text-center lg:text-left">
-                  <div className="flex items-center justify-center lg:justify-start gap-1.5 text-accent-gold font-bold text-sm sm:text-base font-[family-name:var(--font-display)]">
-                    <Sparkles size={16} />
-                    <span>{t('home.heroFeatureFruit', 'Trái Cây Tươi')}</span>
+                <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
+                  <div className="flex items-center gap-1.5 text-accent-gold font-bold text-xs sm:text-sm lg:text-xs xl:text-sm font-[family-name:var(--font-display)] leading-tight">
+                    <Sparkles size={15} className="shrink-0" />
+                    <span className="whitespace-nowrap">{t('home.heroFeatureFruit', 'Trái Cây Tươi')}</span>
                   </div>
-                  <div className="text-xs text-white/70 mt-1">{t('home.heroStatsStoresLabel')}</div>
+                  <div className="text-[11px] sm:text-xs text-white/75 mt-1 leading-normal">{t('home.heroStatsStoresLabel')}</div>
                 </div>
-                <div className="text-center lg:text-left">
-                  <div className="flex items-center justify-center lg:justify-start gap-1.5 text-accent-gold font-bold text-sm sm:text-base font-[family-name:var(--font-display)]">
-                    <Clock size={16} />
-                    <span>{t('home.heroFeatureBrew', 'Pha Chế Mỗi Ngày')}</span>
+                <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
+                  <div className="flex items-center gap-1.5 text-accent-gold font-bold text-xs sm:text-sm lg:text-xs xl:text-sm font-[family-name:var(--font-display)] leading-tight">
+                    <Clock size={15} className="shrink-0" />
+                    <span className="whitespace-nowrap">{t('home.heroFeatureBrew', 'Pha Chế Mỗi Ngày')}</span>
                   </div>
-                  <div className="text-xs text-white/70 mt-1">{t('home.heroStatsCupsLabel')}</div>
+                  <div className="text-[11px] sm:text-xs text-white/75 mt-1 leading-normal">{t('home.heroStatsCupsLabel')}</div>
                 </div>
               </div>
             </div>
 
-            {/* Right cup image column: Transparent Cup + Orbiting Ingredients (lui phải + to hơn) */}
-            <div className="lg:col-span-5 flex justify-center items-center relative py-6 lg:translate-x-8 xl:translate-x-12">
-              <div className="relative w-88 sm:w-[440px] lg:w-[480px] xl:w-[510px] aspect-[4/5] flex items-center justify-center select-none pointer-events-none">
+            {/* Right cup image column: Responsive Container + Carousel */}
+            <div className="lg:col-span-5 flex justify-center items-center relative py-4 lg:py-6 lg:translate-x-0 xl:translate-x-4 2xl:translate-x-8">
+              <div className="relative w-72 sm:w-88 md:w-96 lg:w-[380px] xl:w-[460px] 2xl:w-[500px] aspect-[4/5] flex items-center justify-center select-none pointer-events-none">
                 {/* Ambient Soft Glow Behind Cup */}
-                <div className="absolute inset-8 rounded-full bg-gradient-to-tr from-amber-300/25 via-rose-300/30 to-pink-500/25 blur-3xl pointer-events-none" />
+                <div className="absolute inset-6 sm:inset-8 rounded-full bg-gradient-to-tr from-amber-300/25 via-rose-300/30 to-pink-500/25 blur-3xl pointer-events-none" />
 
                 {/* Subtle orbit circle */}
                 <div className="absolute inset-2 sm:inset-4 rounded-full border border-dashed border-white/20 animate-[spin_50s_linear_infinite] pointer-events-none" />
@@ -203,10 +203,10 @@ export default function HomePage() {
                   <img
                     src="/images/hero/tini-rmbg.png"
                     alt="Weetini Signature Cup"
-                    className="w-56 sm:w-68 lg:w-76 xl:w-80 h-auto object-contain animate-hero-cup drop-shadow-[0_20px_35px_rgba(0,0,0,0.28)] pointer-events-none select-none"
+                    className="w-48 sm:w-56 md:w-60 lg:w-60 xl:w-72 2xl:w-80 h-auto object-contain animate-hero-cup drop-shadow-[0_20px_35px_rgba(0,0,0,0.28)] pointer-events-none select-none"
                   />
                   {/* Soft realistic cup base shadow */}
-                  <div className="w-48 sm:w-60 lg:w-68 h-5 bg-black/25 rounded-full blur-md -mt-1 pointer-events-none transform scale-y-50" />
+                  <div className="w-40 sm:w-48 md:w-52 lg:w-52 xl:w-64 2xl:w-68 h-4 sm:h-5 bg-black/25 rounded-full blur-md -mt-1 pointer-events-none transform scale-y-50" />
                 </div>
 
                 {/* ==================================================== */}
@@ -223,7 +223,7 @@ export default function HomePage() {
                   <img
                     src="/images/hero/b5.png"
                     alt="Cành lá trà tươi"
-                    className="w-18 sm:w-22 lg:w-25 h-auto object-contain drop-shadow-[0_14px_22px_rgba(0,0,0,0.35)] pointer-events-none select-none"
+                    className="w-14 sm:w-16 md:w-18 lg:w-18 xl:w-22 2xl:w-25 h-auto object-contain drop-shadow-[0_14px_22px_rgba(0,0,0,0.35)] pointer-events-none select-none"
                   />
                 </div>
 
@@ -235,7 +235,7 @@ export default function HomePage() {
                   <img
                     src="/images/hero/b8.png"
                     alt="Vệt sữa dâu xoáy mềm"
-                    className="w-24 sm:w-28 lg:w-34 xl:w-36 h-auto object-contain drop-shadow-[0_16px_25px_rgba(0,0,0,0.35)] pointer-events-none select-none"
+                    className="w-18 sm:w-22 md:w-24 lg:w-24 xl:w-30 2xl:w-34 h-auto object-contain drop-shadow-[0_16px_25px_rgba(0,0,0,0.35)] pointer-events-none select-none"
                   />
                 </div>
 
@@ -247,7 +247,7 @@ export default function HomePage() {
                   <img
                     src="/images/hero/b2.png"
                     alt="Búp trà xanh non"
-                    className="w-12 sm:w-14 lg:w-16 h-auto object-contain drop-shadow-[0_8px_14px_rgba(0,0,0,0.28)] pointer-events-none select-none"
+                    className="w-9 sm:w-11 md:w-12 lg:w-12 xl:w-14 2xl:w-16 h-auto object-contain drop-shadow-[0_8px_14px_rgba(0,0,0,0.28)] pointer-events-none select-none"
                   />
                 </div>
 
@@ -259,7 +259,7 @@ export default function HomePage() {
                   <img
                     src="/images/hero/mi.png"
                     alt="Dòng sữa tươi bồng bềnh"
-                    className="w-36 sm:w-44 lg:w-52 xl:w-56 h-auto object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.32)] pointer-events-none select-none"
+                    className="w-28 sm:w-34 md:w-38 lg:w-38 xl:w-48 2xl:w-54 h-auto object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.32)] pointer-events-none select-none"
                   />
                 </div>
 
@@ -271,7 +271,7 @@ export default function HomePage() {
                   <img
                     src="/images/hero/b1.png"
                     alt="Lá trà vàng óng"
-                    className="w-11 sm:w-13 lg:w-15 h-auto object-contain drop-shadow-[0_8px_14px_rgba(0,0,0,0.3)] pointer-events-none select-none"
+                    className="w-8 sm:w-10 md:w-11 lg:w-11 xl:w-13 2xl:w-15 h-auto object-contain drop-shadow-[0_8px_14px_rgba(0,0,0,0.3)] pointer-events-none select-none"
                   />
                 </div>
 
@@ -283,7 +283,7 @@ export default function HomePage() {
                   <img
                     src="/images/hero/strawberry_bottom.png"
                     alt="Quả dâu tây đỏ mọng"
-                    className="w-15 sm:w-18 lg:w-20 h-auto object-contain drop-shadow-[0_14px_22px_rgba(0,0,0,0.35)] pointer-events-none select-none"
+                    className="w-12 sm:w-14 md:w-15 lg:w-15 xl:w-18 2xl:w-20 h-auto object-contain drop-shadow-[0_14px_22px_rgba(0,0,0,0.35)] pointer-events-none select-none"
                   />
                 </div>
 
@@ -295,16 +295,16 @@ export default function HomePage() {
                   <img
                     src="/images/hero/b4.png"
                     alt="Làn sóng trà matcha"
-                    className="w-18 sm:w-22 lg:w-25 h-auto object-contain drop-shadow-[0_12px_20px_rgba(0,0,0,0.3)] pointer-events-none select-none"
+                    className="w-14 sm:w-16 md:w-18 lg:w-18 xl:w-22 2xl:w-25 h-auto object-contain drop-shadow-[0_12px_20px_rgba(0,0,0,0.3)] pointer-events-none select-none"
                   />
                 </div>
 
                 {/* Freshly Made stamp badge - anchored decorative seal */}
-                <div className="absolute top-4 -right-4 sm:-right-6 lg:-right-8 z-35 animate-hero-badge pointer-events-none">
+                <div className="absolute top-2 -right-2 sm:top-4 sm:-right-4 lg:top-2 lg:-right-3 xl:top-4 xl:-right-6 z-35 animate-hero-badge pointer-events-none">
                   <img
                     src="/images/hero/badge.png"
                     alt="Freshly Made Weetini"
-                    className="w-16 sm:w-20 lg:w-22 h-auto object-contain drop-shadow-[0_10px_16px_rgba(0,0,0,0.25)] pointer-events-none select-none"
+                    className="w-13 sm:w-15 lg:w-16 xl:w-20 2xl:w-22 h-auto object-contain drop-shadow-[0_10px_16px_rgba(0,0,0,0.25)] pointer-events-none select-none"
                   />
                 </div>
               </div>
