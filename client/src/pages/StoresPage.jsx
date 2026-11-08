@@ -214,7 +214,7 @@ export default function StoresPage() {
                     <MapPin size={28} />
                   </div>
                   <div className="bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-md text-xs font-bold text-gray-800">
-                    {activeStore ? activeStore.name : 'Weetini Location'}
+                    {activeStore ? activeStore.name : 'WEE TINI Location'}
                   </div>
                 </div>
               </div>

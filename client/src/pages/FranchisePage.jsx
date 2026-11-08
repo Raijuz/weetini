@@ -52,12 +52,12 @@ export default function FranchisePage() {
 
   const faqs = lang === 'en' ? [
     {
-      q: 'What is the minimum required floor area for a Weetini store?',
-      a: 'Weetini models are optimized from as compact as 15m² for express take-away kiosks, up to 35m² - 60m² for stores with dine-in seating.',
+      q: 'What is the minimum required floor area for a WEE TINI store?',
+      a: 'WEE TINI models are optimized from as compact as 15m² for express take-away kiosks, up to 35m² - 60m² for stores with dine-in seating.',
     },
     {
       q: 'Can I partner if I do not have prior F&B experience?',
-      a: 'Absolutely! Weetini provides comprehensive A-to-Z training, covering gram-accurate standardized brewing, POS system operations, inventory controls, and staff management.',
+      a: 'Absolutely! WEE TINI provides comprehensive A-to-Z training, covering gram-accurate standardized brewing, POS system operations, inventory controls, and staff management.',
     },
     {
       q: 'How long does it take from signing the contract to grand opening?',
@@ -66,11 +66,11 @@ export default function FranchisePage() {
   ] : [
     {
       q: 'Diện tích mặt bằng tối thiểu cần là bao nhiêu?',
-      a: 'Mặt bằng Weetini tối ưu chỉ cần từ 15m² đối với mô hình kiosk mang đi, và 35m² - 60m² đối với mô hình có không gian ngồi lại.',
+      a: 'Mặt bằng WEE TINI tối ưu chỉ cần từ 15m² đối với mô hình kiosk mang đi, và 35m² - 60m² đối với mô hình có không gian ngồi lại.',
     },
     {
       q: 'Tôi chưa từng có kinh nghiệm F&B thì có mở được không?',
-      a: 'Hoàn toàn được! Weetini cung cấp gói đào tạo từ A-Z, từ công thức pha chế định lượng chuẩn xác, vận hành máy POS, đến tuyển dụng và quản lý nhân viên.',
+      a: 'Hoàn toàn được! WEE TINI cung cấp gói đào tạo từ A-Z, từ công thức pha chế định lượng chuẩn xác, vận hành máy POS, đến tuyển dụng và quản lý nhân viên.',
     },
     {
       q: 'Thời gian từ lúc ký hợp đồng đến khi khai trương mất bao lâu?',
@@ -83,7 +83,7 @@ export default function FranchisePage() {
       {/* Banner */}
       <section className="bg-gradient-to-r from-[#98B155] to-[#F6869D] text-white py-16 sm:py-24 px-4 text-center">
         <div className="max-w-4xl mx-auto space-y-4">
-          <span className="text-xs uppercase tracking-widest font-extrabold text-accent-gold bg-white/10 px-4 py-1.5 rounded-full inline-block">
+          <span className="text-xs uppercase tracking-widest font-extrabold text-white bg-white/15 px-4 py-1.5 rounded-full inline-block backdrop-blur-xs">
             {t('franchise.bannerBadge')}
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold font-[family-name:var(--font-display)] tracking-tight">
@@ -150,28 +150,28 @@ export default function FranchisePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-6 bg-gradient-to-br from-[#98B155] to-[#F6869D] rounded-3xl p-8 sm:p-10 text-white space-y-6">
+            <div className="lg:col-span-6 bg-gradient-to-br from-[#98B155] to-[#F6869D] rounded-3xl p-8 sm:p-10 text-white space-y-6 shadow-xl">
               <div className="space-y-2">
-                <span className="text-xs uppercase tracking-wider font-bold text-accent-gold">
+                <span className="text-xs uppercase tracking-widest font-black text-white bg-white/20 px-3.5 py-1.5 rounded-full inline-block backdrop-blur-xs">
                   {t('franchise.financialBadge')}
                 </span>
-                <h3 className="text-2xl font-bold font-[family-name:var(--font-display)]">
+                <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-display)] text-white tracking-tight drop-shadow-xs">
                   {t('franchise.financialTitle')}
                 </h3>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 {financialMetrics.map((met, i) => (
-                  <div key={i} className="p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                    <div className="text-xs text-white/70">{met.label}</div>
-                    <div className="text-xl sm:text-2xl font-extrabold text-accent-gold mt-1">
+                  <div key={i} className="p-4 sm:p-5 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 shadow-xs">
+                    <div className="text-xs sm:text-sm font-medium text-white/90">{met.label}</div>
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-black text-white mt-1 drop-shadow-xs tracking-tight">
                       {met.value}
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="text-xs text-white/60 pt-2 border-t border-white/10">
+              <div className="text-xs sm:text-sm text-white/85 pt-3 border-t border-white/20">
                 {t('franchise.financialDesc')}
               </div>
             </div>

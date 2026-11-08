@@ -6,9 +6,8 @@ import { useLanguage } from '../context/LanguageContext'
 export default function AboutPage() {
   const { t, dict } = useLanguage()
 
-  const countCups = useCountUp(20000, 2000)
-  const countStores = useCountUp(42, 1800)
-  const countYears = useCountUp(6, 1500)
+  const countCups = useCountUp(2000, 2000)
+  const countFresh = useCountUp(100, 1500)
 
   const coreValues = dict.about?.coreValues || []
   const milestones = dict.about?.milestones || []
@@ -20,7 +19,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 opacity-20">
           <img
             src="/images/hero-banner.jpg"
-            alt="Weetini Background"
+            alt="WEE TINI Background"
             className="w-full h-full object-cover"
           />
         </div>
@@ -55,15 +54,15 @@ export default function AboutPage() {
 
               {/* Stats Box */}
               <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200">
-                <div ref={countYears.ref} className="text-center sm:text-left">
+                <div ref={countFresh.ref} className="text-center sm:text-left">
                   <div className="text-3xl font-extrabold text-primary-600 font-[family-name:var(--font-display)]">
-                    {countYears.count}+
+                    {countFresh.count}%
                   </div>
                   <div className="text-xs text-gray-500 font-medium">{t('about.yearsStat')}</div>
                 </div>
-                <div ref={countStores.ref} className="text-center sm:text-left">
+                <div className="text-center sm:text-left">
                   <div className="text-3xl font-extrabold text-primary-600 font-[family-name:var(--font-display)]">
-                    {countStores.count}+
+                    1
                   </div>
                   <div className="text-xs text-gray-500 font-medium">{t('about.storesStat')}</div>
                 </div>
@@ -80,7 +79,7 @@ export default function AboutPage() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <img
                   src="/images/misc/about.jpg"
-                  alt="Weetini Store Interior"
+                  alt="WEE TINI Store Interior"
                   className="w-full h-[460px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent flex items-end p-8">

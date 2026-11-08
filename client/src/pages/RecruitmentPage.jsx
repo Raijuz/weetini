@@ -30,7 +30,7 @@ export default function RecruitmentPage() {
       ],
       benefits: [
         'Meal allowance & monthly store sales performance bonus',
-        '50% employee discount on all Weetini beverages',
+        '50% employee discount on all WEE TINI beverages',
         'Clear promotion path to Shift Leader within 3-6 months',
       ],
     },
@@ -265,8 +265,8 @@ export default function RecruitmentPage() {
             </h2>
             <p className="text-gray-500 text-sm">
               {lang === 'en'
-                ? 'Weetini HR will review your submission and contact you within 48 business hours.'
-                : 'Bộ phận Nhân sự Weetini sẽ liên hệ lại với bạn trong vòng 48 giờ làm việc.'}
+                ? 'WEE TINI HR will review your submission and contact you within 48 business hours.'
+                : 'Bộ phận Nhân sự WEE TINI sẽ liên hệ lại với bạn trong vòng 48 giờ làm việc.'}
             </p>
           </div>
 

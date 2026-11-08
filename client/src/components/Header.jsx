@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Phone, Search, ShoppingBag } from 'lucide-react'
+import { Menu, X, Phone, Search, ShoppingBag, Sparkles } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 import { useCart } from '../context/CartContext'
 
@@ -15,9 +15,8 @@ export default function Header() {
     { path: '/', label: t('nav.home') },
     { path: '/ve-chung-toi', label: t('nav.about') },
     { path: '/menu', label: t('nav.menu') },
-    { path: '/he-thong-cua-hang', label: t('nav.stores') },
-    { path: '/nhuong-quyen', label: t('nav.franchise') },
-    { path: '/tuyen-dung', label: t('nav.recruitment') },
+    { path: '/lien-he', label: t('nav.contact') },
+    { path: '/nhuong-quyen', label: t('nav.franchise'), isHighlight: true },
   ]
 
   useEffect(() => {
@@ -48,9 +47,9 @@ export default function Header() {
           <div className={`flex items-center justify-end gap-4 text-sm mb-2 transition-all duration-300 ${
             isScrolled ? 'h-0 overflow-hidden opacity-0 mb-0' : 'h-auto opacity-100'
           }`}>
-            <a href="tel:0888900111" className="flex items-center gap-2 text-white hover:text-accent-gold transition-colors">
+            <a href="tel:0859590010" className="flex items-center gap-2 text-white hover:text-accent-gold transition-colors">
               <Phone size={14} />
-              <span>{t('nav.hotlineLabel')}<strong>0888 900 111</strong></span>
+              <span>{t('nav.hotlineLabel')}<strong>0859590010</strong></span>
             </a>
             <div className="w-px h-4 bg-white/30" />
             <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold">
@@ -94,7 +93,7 @@ export default function Header() {
                 <h1 className={`text-2xl font-bold font-[family-name:var(--font-display)] tracking-wide transition-colors duration-300 ${
                   isScrolled ? 'text-primary-500' : 'text-white'
                 }`}>
-                  Weetini
+                  WEE TINI
                 </h1>
                 <p className={`text-[10px] tracking-[0.2em] uppercase transition-colors duration-300 ${
                   isScrolled ? 'text-primary-400' : 'text-white/70'
@@ -105,9 +104,30 @@ export default function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-2">
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-2.5">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path
+                if (link.isHighlight) {
+                  return (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className="relative overflow-hidden px-3.5 xl:px-4.5 py-1.5 xl:py-2 rounded-full font-black text-xs xl:text-sm uppercase tracking-wider text-white shadow-md bg-gradient-to-r from-[#F6869D] via-[#f4587a] to-[#ea4c6f] hover:from-[#f4587a] hover:to-[#db3a5d] active:scale-95 transition-all duration-300 animate-franchise-pulse flex items-center gap-1.5 ring-2 ring-white/60 hover:ring-white ml-2 cursor-pointer group select-none"
+                    >
+                      {/* Shimmer light sweep beam */}
+                      <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg] animate-franchise-shimmer pointer-events-none" />
+
+                      <Sparkles size={14} className="text-amber-200 animate-spin-slow shrink-0" />
+                      <span className="relative z-10 drop-shadow-xs font-black">{link.label}</span>
+
+                      {/* Hot tag */}
+                      <span className="relative z-10 text-[9px] font-extrabold bg-white text-[#ea4c6f] px-1.5 py-0.2 rounded-full shadow-xs uppercase tracking-tight -mr-0.5">
+                        HOT
+                      </span>
+                    </Link>
+                  )
+                }
+
                 return (
                   <Link
                     key={link.path}
@@ -198,7 +218,7 @@ export default function Header() {
                 <div className="w-10 h-10 bg-primary-500 rounded-xl flex items-center justify-center">
                   <span className="text-white font-bold text-lg">W</span>
                 </div>
-                <span className="text-xl font-bold text-primary-500 font-[family-name:var(--font-display)]">Weetini</span>
+                <span className="text-xl font-bold text-primary-500 font-[family-name:var(--font-display)]">WEE TINI</span>
               </div>
               <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 rounded-lg hover:bg-gray-100">
                 <X size={20} />
@@ -230,9 +250,33 @@ export default function Header() {
               </div>
             </div>
 
-            <nav className="flex flex-col gap-1.5">
+            <nav className="flex flex-col gap-2">
               {navLinks.map((link, i) => {
                 const isActive = location.pathname === link.path
+                if (link.isHighlight) {
+                  return (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className="relative overflow-hidden p-3.5 rounded-2xl transition-all duration-300 flex items-center justify-between text-white shadow-md bg-gradient-to-r from-[#F6869D] via-[#f4587a] to-[#ea4c6f] active:scale-95 animate-franchise-pulse my-1 ring-2 ring-pink-200"
+                      style={{ animationDelay: `${i * 0.05}s` }}
+                    >
+                      {/* Shimmer light sweep beam */}
+                      <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-franchise-shimmer pointer-events-none" />
+
+                      <div className="flex items-center gap-2 relative z-10">
+                        <Sparkles size={18} className="text-amber-200 animate-spin-slow shrink-0" />
+                        <span className="font-black uppercase tracking-wider text-base drop-shadow-xs">
+                          {link.label}
+                        </span>
+                      </div>
+                      <span className="relative z-10 text-[10px] font-black bg-white text-[#ea4c6f] px-2 py-0.5 rounded-full shadow-xs uppercase tracking-wide">
+                        CƠ HỘI HOT
+                      </span>
+                    </Link>
+                  )
+                }
+
                 return (
                   <Link
                     key={link.path}
@@ -273,11 +317,11 @@ export default function Header() {
                 </span>
               </button>
 
-              <a href="tel:0888900111" className="flex items-center gap-3 px-4 py-3 bg-gray-50 hover:bg-primary-50 rounded-xl text-primary-600 transition-colors">
+              <a href="tel:0859590010" className="flex items-center gap-3 px-4 py-3 bg-gray-50 hover:bg-primary-50 rounded-xl text-primary-600 transition-colors">
                 <Phone size={18} />
                 <div>
                   <p className="text-xs text-primary-400">{t('nav.hotlineLabel')}</p>
-                  <p className="font-bold">0888 900 111</p>
+                  <p className="font-bold">0859590010</p>
                 </div>
               </a>
             </div>

@@ -21,9 +21,8 @@ export default function Footer() {
   const quickLinks = [
     { to: '/ve-chung-toi', label: t('nav.about') },
     { to: '/menu', label: t('nav.menu') },
-    { to: '/he-thong-cua-hang', label: t('nav.stores') },
     { to: '/nhuong-quyen', label: t('nav.franchise') },
-    { to: '/tuyen-dung', label: t('nav.recruitment') },
+    { to: '/lien-he', label: t('nav.contact') },
   ]
 
   return (
@@ -38,7 +37,7 @@ export default function Footer() {
                 <span className="text-white font-bold text-xl font-[family-name:var(--font-display)]">W</span>
               </div>
               <div>
-                <h3 className="text-2xl font-bold font-[family-name:var(--font-display)] tracking-wide">Weetini</h3>
+                <h3 className="text-2xl font-bold font-[family-name:var(--font-display)] tracking-wide">WEE TINI</h3>
                 <p className="text-[10px] tracking-[0.2em] uppercase text-white/50">
                   {lang === 'en' ? 'Vietnamese Tea' : 'Trà sữa Việt'}
                 </p>
@@ -97,11 +96,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-accent-gold shrink-0" />
-                <a href="tel:0888900111" className="text-gray-400 text-sm hover:text-accent-gold transition-colors">0888 900 111</a>
+                <a href="tel:0859590010" className="text-gray-400 text-sm hover:text-accent-gold transition-colors">0859590010</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-accent-gold shrink-0" />
-                <a href="mailto:contact@weetini.vn" className="text-gray-400 text-sm hover:text-accent-gold transition-colors">contact@weetini.vn</a>
+                <a href="mailto:Weetinicreative@gmail.com" className="text-gray-400 text-sm hover:text-accent-gold transition-colors">Weetinicreative@gmail.com</a>
               </li>
               <li className="flex items-center gap-3">
                 <Clock size={18} className="text-accent-gold shrink-0" />

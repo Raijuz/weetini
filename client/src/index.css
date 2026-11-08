@@ -533,7 +533,7 @@
 /* 3D Orbiting Carousel Base */
 .orbit-fruit {
   position: absolute;
-  top: calc(50% + var(--orbit-y, 0px));
+  top: calc(50% + 42px + var(--orbit-y, 0px));
   left: 50%;
   will-change: transform, z-index, opacity;
   animation-timing-function: linear;
@@ -549,7 +549,7 @@
 /* Tablet & Intermediate Laptops / Zoomed in (641px - 1279px) */
 @media (min-width: 641px) and (max-width: 1279px) {
   .orbit-fruit {
-    top: calc(50% + var(--orbit-y, 0px) * 0.8);
+    top: calc(50% + 34px + var(--orbit-y, 0px) * 0.8);
   }
   .animate-orbit-carousel {
     animation-name: orbitCarouselMedium;
@@ -559,7 +559,7 @@
 /* Mobile (<640px) */
 @media (max-width: 640px) {
   .orbit-fruit {
-    top: calc(50% + var(--orbit-y, 0px) * 0.65);
+    top: calc(50% + 26px + var(--orbit-y, 0px) * 0.65);
   }
   .animate-orbit-carousel {
     animation-name: orbitCarouselMobile;
@@ -713,3 +713,49 @@
   display: inline-block !important;
   white-space: nowrap;
 }
+
+/* =========================================================
+   FRANCHISE CTA BUTTON ANIMATIONS
+   Pulse scale + glow aura + light shimmer beam
+   ========================================================= */
+@keyframes franchisePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(246, 134, 157, 0.45), 0 0 0 0 rgba(246, 134, 157, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(246, 134, 157, 0.75), 0 0 0 6px rgba(246, 134, 157, 0.15);
+  }
+}
+
+@keyframes franchiseShimmer {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+  }
+  35%, 100% {
+    transform: translateX(300%) skewX(-20deg);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-franchise-pulse {
+  animation: franchisePulse 2.4s ease-in-out infinite;
+}
+
+.animate-franchise-shimmer {
+  animation: franchiseShimmer 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 8s linear infinite;
+}
+

@@ -1,5 +1,5 @@
 """
-Weetini - Bubble Tea Brand Backend API
+WEE TINI - Bubble Tea Brand Backend API
 Built with FastAPI
 """
 
@@ -10,8 +10,8 @@ from typing import Optional
 import uvicorn
 
 app = FastAPI(
-    title="Weetini API",
-    description="API cho thương hiệu trà sữa Weetini",
+    title="WEE TINI API",
+    description="API cho thương hiệu trà sữa WEE TINI",
     version="1.0.0"
 )
 
@@ -386,7 +386,7 @@ PRODUCTS = [
     {
         'id': 20,
         'code': '21',
-        'name': 'Wee Tini | Subarashii',
+        'name': 'WEE TINI | Subarashii',
         'slug': 'wee-tini-subarashii',
         'category': 'matcha-signature',
         'description': 'Matcha nguyên chất với hương trà xanh thanh nhẹ, thoảng chút đắng dịu hòa quyện cùng sữa dâu béo mịn và ngọt thơm. Sự giao thoa giữa sắc xanh và hồng tạo nên một thức uống vừa tinh tế vừa đáng yêu.',
@@ -404,72 +404,22 @@ PRODUCTS = [
 STORES = [
     {
         "id": 1,
-        "name": "Weetini - Nguyễn Trãi",
-        "address": "123 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP.HCM",
-        "phone": "0888 900 111",
-        "hours": "08:00 - 22:00",
-        "lat": 10.7717,
-        "lng": 106.6920,
-        "district": "Quận 1"
-    },
-    {
-        "id": 2,
-        "name": "Weetini - Lê Văn Sỹ",
-        "address": "456 Lê Văn Sỹ, Phường 14, Quận 3, TP.HCM",
-        "phone": "0888 900 222",
-        "hours": "08:00 - 22:00",
-        "lat": 10.7890,
-        "lng": 106.6734,
-        "district": "Quận 3"
-    },
-    {
-        "id": 3,
-        "name": "Weetini - Phan Xích Long",
-        "address": "78 Phan Xích Long, Phường 3, Quận Phú Nhuận, TP.HCM",
-        "phone": "0888 900 333",
+        "name": "WEE TINI - Trịnh Đình Thảo (Trụ sở chính)",
+        "address": "37/14A Trịnh Đình Thảo, P. Tân Phú, TP. HCM",
+        "phone": "0908 639 279",
         "hours": "08:00 - 22:30",
-        "lat": 10.7984,
-        "lng": 106.6800,
-        "district": "Phú Nhuận"
-    },
-    {
-        "id": 4,
-        "name": "Weetini - Nguyễn Oanh",
-        "address": "200 Nguyễn Oanh, Phường 17, Quận Gò Vấp, TP.HCM",
-        "phone": "0888 900 444",
-        "hours": "08:00 - 22:00",
-        "lat": 10.8380,
-        "lng": 106.6684,
-        "district": "Gò Vấp"
-    },
-    {
-        "id": 5,
-        "name": "Weetini - Phạm Văn Đồng",
-        "address": "55 Phạm Văn Đồng, Phường Hiệp Bình Chánh, TP. Thủ Đức",
-        "phone": "0888 900 555",
-        "hours": "08:00 - 22:00",
-        "lat": 10.8470,
-        "lng": 106.7220,
-        "district": "Thủ Đức"
-    },
-    {
-        "id": 6,
-        "name": "Weetini - Bình Dương",
-        "address": "15 Đại Lộ Bình Dương, TX. Thuận An, Bình Dương",
-        "phone": "0888 900 666",
-        "hours": "08:00 - 22:00",
-        "lat": 10.9800,
-        "lng": 106.6530,
-        "district": "Bình Dương"
+        "lat": 10.7780,
+        "lng": 106.6380,
+        "district": "Tân Phú"
     },
 ]
 
 NEWS = [
     {
         "id": 1,
-        "title": "Weetini khai trương chi nhánh thứ 40",
+        "title": "WEE TINI khai trương chi nhánh thứ 40",
         "slug": "weetini-khai-truong-chi-nhanh-thu-40",
-        "excerpt": "Weetini chính thức khai trương chi nhánh thứ 40 tại Quận 7, TP.HCM với nhiều ưu đãi hấp dẫn dành cho khách hàng.",
+        "excerpt": "WEE TINI chính thức khai trương chi nhánh thứ 40 tại Quận 7, TP.HCM với nhiều ưu đãi hấp dẫn dành cho khách hàng.",
         "image": "/images/news/khai-truong.jpg",
         "date": "2024-12-15",
         "category": "Tin tức"
@@ -478,16 +428,16 @@ NEWS = [
         "id": 2,
         "title": "Ra mắt Bơ Collection - Bộ sưu tập mùa hè",
         "slug": "ra-mat-bo-collection",
-        "excerpt": "Weetini giới thiệu bộ sưu tập Bơ Collection với những thức uống mới lạ, kết hợp giữa bơ Đà Lạt và trà sữa truyền thống.",
+        "excerpt": "WEE TINI giới thiệu bộ sưu tập Bơ Collection với những thức uống mới lạ, kết hợp giữa bơ Đà Lạt và trà sữa truyền thống.",
         "image": "/images/news/bo-collection.jpg",
         "date": "2024-11-20",
         "category": "Sản phẩm mới"
     },
     {
         "id": 3,
-        "title": "Weetini - Top thương hiệu trà sữa yêu thích 2024",
+        "title": "WEE TINI - Top thương hiệu trà sữa yêu thích 2024",
         "slug": "weetini-top-thuong-hieu-tra-sua",
-        "excerpt": "Weetini vinh dự được bình chọn là Top thương hiệu trà sữa được yêu thích nhất năm 2024 bởi cộng đồng yêu trà sữa.",
+        "excerpt": "WEE TINI vinh dự được bình chọn là Top thương hiệu trà sữa được yêu thích nhất năm 2024 bởi cộng đồng yêu trà sữa.",
         "image": "/images/news/top-brand.jpg",
         "date": "2024-10-05",
         "category": "Thành tựu"
@@ -501,7 +451,7 @@ RECRUITMENT = [
         "location": "Tất cả chi nhánh TP.HCM",
         "type": "Toàn thời gian / Bán thời gian",
         "salary": "5.000.000 - 8.000.000 VNĐ",
-        "description": "Pha chế các loại đồ uống theo công thức chuẩn của Weetini, đảm bảo chất lượng và phục vụ khách hàng.",
+        "description": "Pha chế các loại đồ uống theo công thức chuẩn của WEE TINI, đảm bảo chất lượng và phục vụ khách hàng.",
         "requirements": [
             "Nam/Nữ từ 18 - 30 tuổi",
             "Nhanh nhẹn, chịu khó",
@@ -528,7 +478,7 @@ RECRUITMENT = [
 ABOUT_DATA = {
     "overview": {
         "title": "TỔNG QUAN",
-        "description": "Weetini, thành lập vào năm 2018, đã không ngừng phát triển trong suốt hơn 6 năm qua với hơn 40 cửa hàng trải rộng khắp TP. Hồ Chí Minh, Biên Hòa và Bình Dương. Với chất lượng đặc trưng và dịch vụ tận tâm, thương hiệu đã nhanh chóng chiếm được tình cảm và sự yêu mến của đông đảo khách hàng.",
+        "description": "WEE TINI, thành lập vào năm 2026, đã không ngừng phát triển trong suốt hơn 6 năm qua với hơn 40 cửa hàng trải rộng khắp TP. Hồ Chí Minh, Biên Hòa và Bình Dương. Với chất lượng đặc trưng và dịch vụ tận tâm, thương hiệu đã nhanh chóng chiếm được tình cảm và sự yêu mến của đông đảo khách hàng.",
         "stats": [
             {"number": 20000, "suffix": "+", "label": "Ly trà sữa", "sublabel": "bán ra mỗi ngày"},
             {"number": 40, "suffix": "+", "label": "Loại trà sữa, topping", "sublabel": "khác nhau"},
@@ -537,7 +487,7 @@ ABOUT_DATA = {
     },
     "vision_mission": {
         "title": "TẦM NHÌN - SỨ MỆNH",
-        "description": "Trở thành chuỗi thương hiệu trà sữa TOP tại Việt Nam. Kết hợp lối sống đơn giản tạo nên chất riêng của Weetini.",
+        "description": "Trở thành chuỗi thương hiệu trà sữa TOP tại Việt Nam. Kết hợp lối sống đơn giản tạo nên chất riêng của WEE TINI.",
         "items": [
             {"icon": "handshake", "title": "Đối Tác", "desc": "Đề cao tinh thần hợp tác và tương trợ cùng nhau phát triển"},
             {"icon": "heart", "title": "Khách Hàng", "desc": "Luôn lấy khách hàng làm trung tâm, nỗ lực phấn đấu đổi mới"},
@@ -557,7 +507,7 @@ ABOUT_DATA = {
 
 FRANCHISE_DATA = {
     "title": "NHƯỢNG QUYỀN THƯƠNG HIỆU",
-    "description": "Weetini mở rộng cơ hội hợp tác nhượng quyền thương hiệu trên toàn quốc. Với mô hình kinh doanh đã được chứng minh hiệu quả, chúng tôi sẵn sàng đồng hành cùng bạn trên con đường khởi nghiệp.",
+    "description": "WEE TINI mở rộng cơ hội hợp tác nhượng quyền thương hiệu trên toàn quốc. Với mô hình kinh doanh đã được chứng minh hiệu quả, chúng tôi sẵn sàng đồng hành cùng bạn trên con đường khởi nghiệp.",
     "benefits": [
         {"icon": "chart-line", "title": "Mô hình hiệu quả", "desc": "ROI nhanh trong 12-18 tháng"},
         {"icon": "graduation-cap", "title": "Đào tạo toàn diện", "desc": "Đào tạo từ A-Z, hỗ trợ vận hành"},
@@ -577,14 +527,14 @@ FRANCHISE_DATA = {
 }
 
 SITE_CONFIG = {
-    "brand_name": "Weetini",
-    "tagline": "Thương hiệu trà sữa Việt",
-    "hotline": "0888 900 111",
-    "email": "contact@weetini.vn",
+    "brand_name": "WEE TINI",
+    "tagline": "Thương hiệu trà sữa & nước ép trái cây tươi",
+    "hotline": "0908 639 279",
+    "email": "Weetinicreative@gmail.com",
     "facebook": "https://facebook.com/weetini",
     "instagram": "https://instagram.com/weetini",
     "tiktok": "https://tiktok.com/@weetini",
-    "address": "123 Nguyễn Trãi, Quận 1, TP.HCM",
+    "address": "37/14A Trịnh Đình Thảo, P. Tân Phú, TP. HCM",
     "working_hours": "08:00 - 22:00 (Tất cả các ngày trong tuần)",
 }
 
@@ -593,7 +543,7 @@ SITE_CONFIG = {
 
 @app.get("/")
 async def root():
-    return {"message": "Weetini API v1.0", "status": "running"}
+    return {"message": "WEE TINI API v1.0", "status": "running"}
 
 
 @app.get("/api/config")
@@ -664,7 +614,7 @@ async def submit_contact(form: ContactForm):
 @app.post("/api/franchise/register")
 async def submit_franchise(form: FranchiseForm):
     # In production, save to database and send notification
-    return {"success": True, "message": "Cảm ơn bạn đã quan tâm đến nhượng quyền Weetini! Chúng tôi sẽ liên hệ sớm."}
+    return {"success": True, "message": "Cảm ơn bạn đã quan tâm đến nhượng quyền WEE TINI! Chúng tôi sẽ liên hệ sớm."}
 
 
 @app.post("/api/orders")
@@ -687,7 +637,7 @@ async def create_order(order: OrderCreate):
     return {
         "success": True,
         "order_id": order_id,
-        "message": "Đặt hàng thành công! Đội ngũ Weetini sẽ liên hệ xác nhận trong ít phút.",
+        "message": "Đặt hàng thành công! Đội ngũ WEE TINI sẽ liên hệ xác nhận trong ít phút.",
         "order": order_record
     }
 

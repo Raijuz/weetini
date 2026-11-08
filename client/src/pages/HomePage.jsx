@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { 
-  ArrowRight, 
-  Sparkles, 
-  MapPin, 
-  Clock, 
-  Award, 
-  Leaf, 
-  ShieldCheck, 
-  Flame
+import {
+  ArrowRight,
+  Sparkles,
+  MapPin,
+  Clock,
+  Award,
+  Leaf,
+  ShieldCheck,
+  Flame,
+  Phone
 } from 'lucide-react'
 import ProductCard from '../components/ProductCard'
 import ProductDetailModal from '../components/ProductDetailModal'
@@ -164,25 +165,25 @@ export default function HomePage() {
               {/* Trust badges - responsive không tràn và không đè chữ */}
               <div className="pt-6 sm:pt-8 grid grid-cols-3 gap-2 sm:gap-4 lg:gap-3 xl:gap-5 border-t border-white/15 max-w-xl mx-auto lg:mx-0">
                 <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <div className="flex items-center gap-1.5 text-accent-gold font-bold text-xs sm:text-sm lg:text-xs xl:text-sm font-[family-name:var(--font-display)] leading-tight">
-                    <Leaf size={15} className="shrink-0" />
+                  <div className="flex items-center gap-1.5 text-white font-extrabold text-xs sm:text-sm lg:text-xs xl:text-sm font-[family-name:var(--font-display)] leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
+                    <Leaf size={15} className="shrink-0 text-accent-gold drop-shadow-xs" />
                     <span className="whitespace-nowrap">{t('home.heroFeatureTea', 'Trà Chọn Lọc')}</span>
                   </div>
-                  <div className="text-[11px] sm:text-xs text-white/75 mt-1 leading-normal">{t('home.heroStatsTeaLabel')}</div>
+                  <div className="text-[11px] sm:text-xs text-lime-100/80 mt-1 leading-normal font-medium">{t('home.heroStatsTeaLabel')}</div>
                 </div>
                 <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <div className="flex items-center gap-1.5 text-accent-gold font-bold text-xs sm:text-sm lg:text-xs xl:text-sm font-[family-name:var(--font-display)] leading-tight">
-                    <Sparkles size={15} className="shrink-0" />
+                  <div className="flex items-center gap-1.5 text-white font-extrabold text-xs sm:text-sm lg:text-xs xl:text-sm font-[family-name:var(--font-display)] leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
+                    <Sparkles size={15} className="shrink-0 text-accent-gold drop-shadow-xs" />
                     <span className="whitespace-nowrap">{t('home.heroFeatureFruit', 'Trái Cây Tươi')}</span>
                   </div>
-                  <div className="text-[11px] sm:text-xs text-white/75 mt-1 leading-normal">{t('home.heroStatsStoresLabel')}</div>
+                  <div className="text-[11px] sm:text-xs text-lime-100/80 mt-1 leading-normal font-medium">{t('home.heroStatsStoresLabel')}</div>
                 </div>
                 <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <div className="flex items-center gap-1.5 text-accent-gold font-bold text-xs sm:text-sm lg:text-xs xl:text-sm font-[family-name:var(--font-display)] leading-tight">
-                    <Clock size={15} className="shrink-0" />
+                  <div className="flex items-center gap-1.5 text-white font-extrabold text-xs sm:text-sm lg:text-xs xl:text-sm font-[family-name:var(--font-display)] leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
+                    <Clock size={15} className="shrink-0 text-accent-gold drop-shadow-xs" />
                     <span className="whitespace-nowrap">{t('home.heroFeatureBrew', 'Pha Chế Mỗi Ngày')}</span>
                   </div>
-                  <div className="text-[11px] sm:text-xs text-white/75 mt-1 leading-normal">{t('home.heroStatsCupsLabel')}</div>
+                  <div className="text-[11px] sm:text-xs text-lime-100/80 mt-1 leading-normal font-medium">{t('home.heroStatsCupsLabel')}</div>
                 </div>
               </div>
             </div>
@@ -194,7 +195,7 @@ export default function HomePage() {
                 <div className="absolute inset-6 sm:inset-8 rounded-full bg-gradient-to-tr from-amber-300/25 via-rose-300/30 to-pink-500/25 blur-3xl pointer-events-none" />
 
                 {/* Subtle orbit circle */}
-                <div className="absolute inset-2 sm:inset-4 rounded-full border border-dashed border-white/20 animate-[spin_50s_linear_infinite] pointer-events-none" />
+                <div className="absolute inset-2 sm:inset-4 rounded-full border border-dashed border-white/20 animate-[spin_50s_linear_infinite] pointer-events-none translate-y-7 sm:translate-y-9" />
 
                 {/* ==================================================== */}
                 {/* 1. CENTERPIECE: WEETINI CUP (tini-rmbg.png)           */}
@@ -202,7 +203,7 @@ export default function HomePage() {
                 <div className="relative z-20 flex flex-col items-center pointer-events-none">
                   <img
                     src="/images/hero/tini-rmbg.png"
-                    alt="Weetini Signature Cup"
+                    alt="WEE TINI Signature Cup"
                     className="w-48 sm:w-56 md:w-60 lg:w-60 xl:w-72 2xl:w-80 h-auto object-contain animate-hero-cup drop-shadow-[0_20px_35px_rgba(0,0,0,0.28)] pointer-events-none select-none"
                   />
                   {/* Soft realistic cup base shadow */}
@@ -216,8 +217,8 @@ export default function HomePage() {
                 {/* ==================================================== */}
 
                 {/* 1. Mốc 0.0s: Cành lá trà tươi (b5.png) - Cao gần miệng cốc (-105px) */}
-                <div 
-                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                <div
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none"
                   style={{ '--orbit-y': '-105px', animationDelay: '0s' }}
                 >
                   <img
@@ -228,8 +229,8 @@ export default function HomePage() {
                 </div>
 
                 {/* 2. Mốc -2.0s: Vệt sữa dâu xoáy (b8.png) - Lưng chừng dưới (+35px) */}
-                <div 
-                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                <div
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none"
                   style={{ '--orbit-y': '35px', animationDelay: '-2.0s' }}
                 >
                   <img
@@ -240,8 +241,8 @@ export default function HomePage() {
                 </div>
 
                 {/* 3. Mốc -4.0s: Búp trà non (b2.png) - Lưng chừng trên (-60px) */}
-                <div 
-                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                <div
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none"
                   style={{ '--orbit-y': '-60px', animationDelay: '-4.0s' }}
                 >
                   <img
@@ -252,8 +253,8 @@ export default function HomePage() {
                 </div>
 
                 {/* 4. Mốc -6.0s: Dòng sữa trắng uốn lượn (mi.png) - Tầng dưới thân cốc (+75px) */}
-                <div 
-                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                <div
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none"
                   style={{ '--orbit-y': '75px', animationDelay: '-6.0s' }}
                 >
                   <img
@@ -264,8 +265,8 @@ export default function HomePage() {
                 </div>
 
                 {/* 5. Mốc -8.0s: Chiếc lá trà vàng óng (b1.png) - Lưng chừng giữa (-20px) */}
-                <div 
-                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                <div
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none"
                   style={{ '--orbit-y': '-20px', animationDelay: '-8.0s' }}
                 >
                   <img
@@ -276,8 +277,8 @@ export default function HomePage() {
                 </div>
 
                 {/* 6. Mốc -10.0s: Quả dâu tây đỏ mọng (strawberry_bottom.png) - Sát đáy cốc (+105px) */}
-                <div 
-                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                <div
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none"
                   style={{ '--orbit-y': '105px', animationDelay: '-10.0s' }}
                 >
                   <img
@@ -288,8 +289,8 @@ export default function HomePage() {
                 </div>
 
                 {/* 7. Mốc -12.0s: Làn sóng trà matcha (b4.png) - Chính giữa thân cốc (0px) */}
-                <div 
-                  className="orbit-fruit animate-orbit-carousel pointer-events-none" 
+                <div
+                  className="orbit-fruit animate-orbit-carousel pointer-events-none"
                   style={{ '--orbit-y': '0px', animationDelay: '-12.0s' }}
                 >
                   <img
@@ -303,7 +304,7 @@ export default function HomePage() {
                 <div className="absolute top-2 -right-2 sm:top-4 sm:-right-4 lg:top-2 lg:-right-3 xl:top-4 xl:-right-6 z-35 animate-hero-badge pointer-events-none">
                   <img
                     src="/images/hero/badge.png"
-                    alt="Freshly Made Weetini"
+                    alt="Freshly Made WEE TINI"
                     className="w-13 sm:w-15 lg:w-16 xl:w-20 2xl:w-22 h-auto object-contain drop-shadow-[0_10px_16px_rgba(0,0,0,0.25)] pointer-events-none select-none"
                   />
                 </div>
@@ -322,7 +323,7 @@ export default function HomePage() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl group border-4 border-lime-100">
                 <img
                   src="/images/misc/about.jpg"
-                  alt="Weetini Store"
+                  alt="WEE TINI Store"
                   className="w-full h-[420px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent" />
@@ -332,8 +333,8 @@ export default function HomePage() {
                       W
                     </div>
                     <div>
-                      <div className="font-bold text-sm">6+ Years of Growth</div>
-                      <div className="text-xs text-gray-500">2018 - 2024 • 40+ Branches</div>
+                      <div className="font-bold text-sm">1+ Years of Growth</div>
+                      <div className="text-xs text-gray-500">2026 - 20226</div>
                     </div>
                   </div>
                 </div>
@@ -355,8 +356,8 @@ export default function HomePage() {
 
               {/* Stats Counters */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
-                <div 
-                  ref={countCups.ref} 
+                <div
+                  ref={countCups.ref}
                   className="p-5 rounded-2xl bg-[#f7f9f0] border border-lime-200/60 hover:border-primary-300 transition-all shadow-sm group hover:-translate-y-1"
                 >
                   <div className="text-3xl sm:text-4xl font-extrabold text-primary-500 font-[family-name:var(--font-display)] flex items-center">
@@ -367,7 +368,7 @@ export default function HomePage() {
                   <div className="text-xs text-gray-500">{t('home.statCupsSub')}</div>
                 </div>
 
-                <div 
+                <div
                   ref={countToppings.ref}
                   className="p-5 rounded-2xl bg-[#f7f9f0] border border-lime-200/60 hover:border-primary-300 transition-all shadow-sm group hover:-translate-y-1"
                 >
@@ -379,7 +380,7 @@ export default function HomePage() {
                   <div className="text-xs text-gray-500">{t('home.statToppingsSub')}</div>
                 </div>
 
-                <div 
+                <div
                   ref={countStores.ref}
                   className="p-5 rounded-2xl bg-[#f7f9f0] border border-lime-200/60 hover:border-primary-300 transition-all shadow-sm group hover:-translate-y-1"
                 >
@@ -427,11 +428,10 @@ export default function HomePage() {
               <button
                 key={cat.id}
                 onClick={() => handleCategoryChange(cat.id)}
-                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer ${
-                  selectedCategory === cat.id
-                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30 scale-105'
-                    : 'bg-white text-gray-700 hover:bg-lime-50 hover:text-primary-600 border border-gray-200'
-                }`}
+                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer ${selectedCategory === cat.id
+                  ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30 scale-105'
+                  : 'bg-white text-gray-700 hover:bg-lime-50 hover:text-primary-600 border border-gray-200'
+                  }`}
               >
                 {localizeCategory(cat)}
               </button>
@@ -491,7 +491,7 @@ export default function HomePage() {
                   {t('home.spotlightAction')}
                 </button>
                 <Link
-                  to="/he-thong-cua-hang"
+                  to="/lien-he"
                   className="px-7 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full font-semibold transition-all duration-300 text-white"
                 >
                   {t('home.spotlightStoreLink')}
@@ -504,7 +504,7 @@ export default function HomePage() {
                 <div className="w-64 sm:w-72 md:w-80 aspect-[3/4] rounded-3xl bg-white/15 backdrop-blur-md p-3 border-2 border-white/40 shadow-2xl overflow-hidden flex items-center justify-center">
                   <img
                     src="/images/products/tini.jpg"
-                    alt="Wee Tini Signature"
+                    alt="WEE TINI Signature"
                     className="w-full h-full object-cover rounded-2xl drop-shadow-xl transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
@@ -574,18 +574,26 @@ export default function HomePage() {
                   {t('home.storeTeaserDesc')}
                 </p>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
-                  {['Quận 1', 'Quận 3', 'Phú Nhuận', 'Gò Vấp', 'Thủ Đức', 'Bình Dương'].map((district) => (
-                    <div key={district} className="flex items-center gap-2 text-xs font-semibold text-gray-700 bg-gray-50 p-2.5 rounded-xl border border-gray-100">
-                      <MapPin size={14} className="text-primary-500 shrink-0" />
-                      <span>{district}</span>
-                    </div>
-                  ))}
+                <div className="p-4 sm:p-5 rounded-2xl bg-gray-50 border border-gray-100 space-y-2.5">
+                  <div className="flex items-start gap-3 text-sm text-gray-800 font-bold">
+                    <MapPin size={18} className="text-primary-500 shrink-0 mt-0.5" />
+                    <span>37/14A Trịnh Đình Thảo, P. Tân Phú, TP. HCM (Trụ sở chính)</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-xs text-gray-600">
+                    <Clock size={15} className="text-primary-500 shrink-0" />
+                    <span>08:00 - 22:30 • Mở cửa tất cả các ngày trong tuần</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-xs text-gray-600">
+                    <Phone size={15} className="text-primary-500 shrink-0" />
+                    <a href="tel:0908639279" className="font-bold text-primary-600 hover:underline">
+                      Hotline: 0908 639 279
+                    </a>
+                  </div>
                 </div>
 
-                <div className="pt-4">
+                <div className="pt-2">
                   <Link
-                    to="/he-thong-cua-hang"
+                    to="/lien-he"
                     className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold text-sm shadow-lg hover:shadow-primary-500/30 transition-all duration-300"
                   >
                     <span>{t('home.storeTeaserBtn')}</span>

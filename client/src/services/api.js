@@ -3,7 +3,7 @@ export const API_BASE = `${API_URL}/api`
 
 
 
-// Fallback mock data matching Weetini Menu & FastAPI backend
+// Fallback mock data matching WEE TINI Menu & FastAPI backend
 export const DEFAULT_CATEGORIES = [
   { id: 'all', name: 'Tất cả', slug: 'all' },
   { id: 'best-seller', name: 'Best Seller', slug: 'best-seller' },
@@ -301,7 +301,7 @@ export const DEFAULT_PRODUCTS = [
   {
     id: 20,
     code: '21',
-    name: 'Wee Tini | Subarashii',
+    name: 'WEE TINI | Subarashii',
     slug: 'wee-tini-subarashii',
     category: 'matcha-signature',
     description: 'Matcha nguyên chất với hương trà xanh thanh nhẹ, thoảng chút đắng dịu hòa quyện cùng sữa dâu béo mịn và ngọt thơm. Sự giao thoa giữa sắc xanh và hồng tạo nên một thức uống vừa tinh tế vừa đáng yêu.',
@@ -318,87 +318,21 @@ export const DEFAULT_PRODUCTS = [
 export const DEFAULT_STORES = [
   {
     id: 1,
-    name: 'Weetini - Nguyễn Trãi',
-    address: '123 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP.HCM',
-    phone: '0888 900 111',
+    name: 'WEE TINI - Trịnh Đình Thảo (Trụ sở chính)',
+    address: '37/14A Trịnh Đình Thảo, P. Tân Phú, TP. HCM',
+    phone: '0908 639 279',
     hours: '08:00 - 22:30',
-    lat: 10.7717,
-    lng: 106.6920,
-    district: 'Quận 1',
-    features: ['Máy lạnh', 'Chỗ để xe', 'Giao hàng tận nơi', 'Thanh toán thẻ / Ví']
-  },
-  {
-    id: 2,
-    name: 'Weetini - Lê Văn Sỹ',
-    address: '456 Lê Văn Sỹ, Phường 14, Quận 3, TP.HCM',
-    phone: '0888 900 222',
-    hours: '08:00 - 22:30',
-    lat: 10.7890,
-    lng: 106.6734,
-    district: 'Quận 3',
-    features: ['Take-away nhanh', 'Chỗ để xe máy', 'Máy lạnh', 'Free Wi-Fi']
-  },
-  {
-    id: 3,
-    name: 'Weetini - Phan Xích Long',
-    address: '78 Phan Xích Long, Phường 3, Quận Phú Nhuận, TP.HCM',
-    phone: '0888 900 333',
-    hours: '08:00 - 23:00',
-    lat: 10.7984,
-    lng: 106.6800,
-    district: 'Phú Nhuận',
-    features: ['Không gian rộng', 'Chỗ ngồi lại', 'Điều hòa 2 tầng', 'View phố đi bộ']
-  },
-  {
-    id: 4,
-    name: 'Weetini - Nguyễn Oanh',
-    address: '200 Nguyễn Oanh, Phường 17, Quận Gò Vấp, TP.HCM',
-    phone: '0888 900 444',
-    hours: '08:00 - 22:30',
-    lat: 10.8380,
-    lng: 106.6684,
-    district: 'Gò Vấp',
-    features: ['Take-away cực nhanh', 'Chỗ để xe', 'Giao hàng Grab/ShopeeFood']
-  },
-  {
-    id: 5,
-    name: 'Weetini - Phạm Văn Đồng',
-    address: '55 Phạm Văn Đồng, Phường Hiệp Bình Chánh, TP. Thủ Đức',
-    phone: '0888 900 555',
-    hours: '08:00 - 22:30',
-    lat: 10.8470,
-    lng: 106.7220,
-    district: 'Thủ Đức',
-    features: ['Mặt tiền đường lớn', 'Chỗ đậu xe rộng', 'Giao hàng siêu tốc']
-  },
-  {
-    id: 6,
-    name: 'Weetini - Đại Lộ Bình Dương',
-    address: '15 Đại Lộ Bình Dương, TX. Thuận An, Bình Dương',
-    phone: '0888 900 666',
-    hours: '08:00 - 22:00',
-    lat: 10.9800,
-    lng: 106.6530,
-    district: 'Bình Dương',
-    features: ['Cửa hàng flagship', 'Chỗ ngồi thoải mái', 'Bãi đỗ ô tô', 'Máy lạnh']
-  },
-  {
-    id: 7,
-    name: 'Weetini - Biên Hòa Đồng Khởi',
-    address: '88 Đường Đồng Khởi, Phường Tam Hiệp, TP. Biên Hòa, Đồng Nai',
-    phone: '0888 900 777',
-    hours: '08:00 - 22:00',
-    lat: 10.9575,
-    lng: 106.8427,
-    district: 'Biên Hòa',
-    features: ['Take-away & Ngồi lại', 'Phục vụ thân thiện', 'Khuyến mãi mỗi tuần']
+    lat: 10.7780,
+    lng: 106.6380,
+    district: 'Tân Phú',
+    features: ['Trụ sở chính', 'Take-away', 'Giao hàng tận nơi', 'Thanh toán thẻ / Ví']
   },
 ]
 
 export const DEFAULT_ABOUT = {
   overview: {
     title: 'TỔNG QUAN',
-    description: 'Weetini (lấy cảm hứng từ sự mộc mạc và chuẩn mực của Sunday Basic), thành lập vào năm 2018, đã không ngừng phát triển trong suốt hơn 6 năm qua với hơn 40 cửa hàng trải rộng khắp TP. Hồ Chí Minh, Biên Hòa và Bình Dương. Với chất lượng đặc trưng và dịch vụ tận tâm, thương hiệu đã nhanh chóng chiếm được tình cảm và sự yêu mến của đông đảo khách hàng.',
+    description: 'WEE TINI (lấy cảm hứng từ sự mộc mạc và chuẩn mực của Sunday Basic), thành lập vào năm 2026, đã không ngừng phát triển trong suốt hơn 6 năm qua với hơn 40 cửa hàng trải rộng khắp TP. Hồ Chí Minh, Biên Hòa và Bình Dương. Với chất lượng đặc trưng và dịch vụ tận tâm, thương hiệu đã nhanh chóng chiếm được tình cảm và sự yêu mến của đông đảo khách hàng.',
     stats: [
       { number: 20000, suffix: '+', label: 'Ly trà sữa', sublabel: 'bán ra mỗi ngày' },
       { number: 40, suffix: '+', label: 'Loại trà sữa, topping', sublabel: 'khác nhau' },
@@ -407,7 +341,7 @@ export const DEFAULT_ABOUT = {
   },
   vision_mission: {
     title: 'TẦM NHÌN - SỨ MỆNH',
-    description: 'Trở thành chuỗi thương hiệu trà sữa TOP tại Việt Nam. Kết hợp lối sống đơn giản tạo nên chất riêng của Weetini.',
+    description: 'Trở thành chuỗi thương hiệu trà sữa TOP tại Việt Nam. Kết hợp lối sống đơn giản tạo nên chất riêng của WEE TINI.',
     items: [
       { icon: 'handshake', title: 'Đối Tác', desc: 'Đề cao tinh thần hợp tác và tương trợ cùng nhau phát triển vững bền' },
       { icon: 'heart', title: 'Khách Hàng', desc: 'Luôn lấy khách hàng làm trung tâm, nỗ lực phấn đấu đổi mới hương vị' },
@@ -426,8 +360,8 @@ export const DEFAULT_ABOUT = {
 }
 
 export const DEFAULT_FRANCHISE = {
-  title: 'NHƯỢNG QUYỀN THƯƠNG HIỆU WEETINI',
-  description: 'Weetini mở rộng cơ hội hợp tác nhượng quyền thương hiệu trên toàn quốc. Với mô hình kinh doanh tinh gọn, chi phí đầu tư hợp lý, hoàn vốn nhanh trong 12 - 18 tháng, chúng tôi cam kết đồng hành cùng đối tác trên con đường khởi nghiệp thành công.',
+  title: 'NHƯỢNG QUYỀN THƯƠNG HIỆU WEE TINI',
+  description: 'WEE TINI mở rộng cơ hội hợp tác nhượng quyền thương hiệu trên toàn quốc. Với mô hình kinh doanh tinh gọn, chi phí đầu tư hợp lý, hoàn vốn nhanh trong 12 - 18 tháng, chúng tôi cam kết đồng hành cùng đối tác trên con đường khởi nghiệp thành công.',
   benefits: [
     {
       title: 'Mô hình hiệu quả cao',
@@ -450,7 +384,7 @@ export const DEFAULT_FRANCHISE = {
     { step: '01', title: 'Đăng ký tư vấn', desc: 'Để lại thông tin liên hệ và trao đổi trực tiếp cùng đội ngũ phát triển mặt bằng' },
     { step: '02', title: 'Khảo sát mặt bằng', desc: 'Đội ngũ chuyên gia thẩm định lưu lượng khách và tính khả thi của địa điểm' },
     { step: '03', title: 'Ký kết hợp đồng', desc: 'Thống nhất điều khoản hợp tác pháp lý minh bạch và kế hoạch triển khai' },
-    { step: '04', title: 'Thiết kế & Thi công', desc: 'Set up không gian theo bộ nhận diện thương hiệu chuẩn Weetini' },
+    { step: '04', title: 'Thiết kế & Thi công', desc: 'Set up không gian theo bộ nhận diện thương hiệu chuẩn WEE TINI' },
     { step: '05', title: 'Đào tạo nhân sự', desc: 'Đào tạo công thức pha chế, quy chuẩn dịch vụ và vận hành phần mềm' },
     { step: '06', title: 'Khai trương bùng nổ', desc: 'Tung chương trình khuyến mãi ra mắt và hỗ trợ vận hành trực tiếp ngày đầu' },
   ],
@@ -483,7 +417,7 @@ export const DEFAULT_RECRUITMENT = [
     ],
     benefits: [
       'Phụ cấp tiền ăn và thưởng doanh số theo tháng',
-      'Ưu đãi 50% đồ uống Weetini cho nhân viên',
+      'Ưu đãi 50% đồ uống WEE TINI cho nhân viên',
       'Cơ hội thăng tiến lên Trưởng ca sau 3-6 tháng',
     ]
   },
@@ -575,7 +509,7 @@ export async function submitContactForm(data) {
   } catch {
     // fallback
   }
-  return { success: true, message: 'Cảm ơn bạn đã gửi liên hệ! Đội ngũ Weetini sẽ phản hồi trong vòng 24h.' }
+  return { success: true, message: 'Cảm ơn bạn đã gửi liên hệ! Đội ngũ WEE TINI sẽ phản hồi trong vòng 24h.' }
 }
 
 export async function submitFranchiseForm(data) {
@@ -589,7 +523,7 @@ export async function submitFranchiseForm(data) {
   } catch {
     // fallback
   }
-  return { success: true, message: 'Đăng ký thành công! Chuyên viên nhượng quyền Weetini sẽ liên hệ tư vấn trong 24 giờ.' }
+  return { success: true, message: 'Đăng ký thành công! Chuyên viên nhượng quyền WEE TINI sẽ liên hệ tư vấn trong 24 giờ.' }
 }
 
 export async function submitOrder(orderData) {
@@ -608,7 +542,7 @@ export async function submitOrder(orderData) {
   return {
     success: true,
     order_id: randomId,
-    message: 'Đặt hàng thành công! Đội ngũ Weetini sẽ liên hệ xác nhận trong ít phút.',
+    message: 'Đặt hàng thành công! Đội ngũ WEE TINI sẽ liên hệ xác nhận trong ít phút.',
     order: {
       order_id: randomId,
       ...orderData,
