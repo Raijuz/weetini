@@ -28,8 +28,8 @@ export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   // Animated counters
-  const countCups = useCountUp(20000, 2200)
-  const countToppings = useCountUp(40, 1800)
+  const countCups = useCountUp(2000, 2200)
+  const countToppings = useCountUp(20, 1800)
   const countStores = useCountUp(10, 1500)
 
   useEffect(() => {

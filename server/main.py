@@ -496,8 +496,8 @@ ABOUT_DATA = {
         "title": "TỔNG QUAN",
         "description": "WEE TINI, thành lập vào năm 2026, đã và đang không ngừng phát triển trong suốt thời gian qua với hơn 10 cửa hàng trải rộng khắp TP. Hồ Chí Minh, Huế, Phan Thiết, Đà Nẵng. Với chất lượng đặc trưng và dịch vụ tận tâm, thương hiệu đã nhanh chóng chiếm được tình cảm và sự yêu mến của đông đảo khách hàng. Triết lý của WEE TINI là mang đến trải nghiệm đồ uống chuẩn vị, giản đơn mà tinh tế, đáp ứng nhịp sống hiện đại năng động.",
         "stats": [
-            {"number": 20000, "suffix": "+", "label": "Ly trà sữa", "sublabel": "bán ra mỗi ngày"},
-            {"number": 40, "suffix": "+", "label": "Loại trà sữa, topping", "sublabel": "khác nhau"},
+            {"number": 2000, "suffix": "+", "label": "Ly trà sữa", "sublabel": "bán ra mỗi ngày"},
+            {"number": 20, "suffix": "+", "label": "Loại trà sữa, topping", "sublabel": "khác nhau"},
             {"number": 10, "suffix": "+", "label": "Cửa hàng", "sublabel": "trên toàn quốc"},
         ]
     },
