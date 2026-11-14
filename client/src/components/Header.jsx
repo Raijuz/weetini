@@ -95,10 +95,10 @@ export default function Header() {
                 }`}>
                   WEE TINI
                 </h1>
-                <p className={`text-[10px] tracking-[0.2em] uppercase transition-colors duration-300 ${
-                  isScrolled ? 'text-primary-400' : 'text-white/70'
+                <p className={`text-[9px] sm:text-[10px] tracking-[0.08em] font-medium transition-colors duration-300 whitespace-nowrap ${
+                  isScrolled ? 'text-primary-400' : 'text-white/80'
                 }`}>
-                  {lang === 'en' ? 'Vietnamese Tea' : 'Trà sữa Việt'}
+                  Wee Fun, Wee Chill, Wee Slay
                 </p>
               </div>
             </Link>

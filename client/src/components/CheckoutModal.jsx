@@ -455,7 +455,7 @@ export default function CheckoutModal() {
                               </div>
                               <div>
                                 {t('checkout.bankHolder')}{' '}
-                                <strong className="text-gray-900 uppercase">WEETINI TEA CO., LTD</strong>
+                                <strong className="text-gray-900 uppercase">WEE TINI TEA CO., LTD</strong>
                               </div>
                             </div>
                           )}

@@ -6,6 +6,10 @@ import { useLanguage } from '../context/LanguageContext'
 export default function AboutPage() {
   const { t, dict } = useLanguage()
 
+  // Cờ bật/tắt hiển thị phần Cột Mốc Đáng Nhớ & Hành Trình Phát Triển (Milestones Timeline)
+  // Đổi thành true để hiển thị lại bất cứ lúc nào
+  const SHOW_MILESTONES = false
+
   const countCups = useCountUp(2000, 2000)
   const countFresh = useCountUp(100, 1500)
 
@@ -186,55 +190,57 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 space-y-3">
-            <span className="text-xs uppercase tracking-widest font-extrabold text-primary-500 bg-primary-50 px-3.5 py-1.5 rounded-full inline-block">
-              {t('about.milestoneBadge')}
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-primary-600 font-[family-name:var(--font-display)]">
-              {t('about.milestoneTitle')}
-            </h2>
-          </div>
+      {/* Timeline Section: Cột Mốc Đáng Nhớ & Hành Trình Phát Triển (Đang ẩn theo yêu cầu, đổi SHOW_MILESTONES = true để bật lại) */}
+      {SHOW_MILESTONES && (
+        <section className="py-20 bg-white">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16 space-y-3">
+              <span className="text-xs uppercase tracking-widest font-extrabold text-primary-500 bg-primary-50 px-3.5 py-1.5 rounded-full inline-block">
+                {t('about.milestoneBadge')}
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-primary-600 font-[family-name:var(--font-display)]">
+                {t('about.milestoneTitle')}
+              </h2>
+            </div>
 
-          <div className="space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:w-0.5 before:bg-primary-200">
-            {milestones.map((milestone, idx) => (
-              <div
-                key={idx}
-                className={`relative flex flex-col sm:flex-row items-start sm:items-center gap-6 ${
-                  idx % 2 === 0 ? 'sm:flex-row-reverse' : ''
-                }`}
-              >
-                <div className="sm:w-1/2 pl-12 sm:pl-0">
-                  <div
-                    className={`p-6 rounded-2xl bg-[#f7f9f0] border border-lime-200/60 shadow-sm ${
-                      idx % 2 === 0 ? 'sm:text-right' : 'sm:text-left'
-                    }`}
-                  >
-                    <span className="text-primary-600 font-extrabold text-lg block font-[family-name:var(--font-display)]">
-                      {milestone.year}
-                    </span>
-                    <h4 className="font-bold text-gray-900 text-base mt-1">
-                      {milestone.title}
-                    </h4>
-                    <p className="text-gray-500 text-xs sm:text-sm mt-2 leading-relaxed">
-                      {milestone.desc}
-                    </p>
+            <div className="space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:w-0.5 before:bg-primary-200">
+              {milestones.map((milestone, idx) => (
+                <div
+                  key={idx}
+                  className={`relative flex flex-col sm:flex-row items-start sm:items-center gap-6 ${
+                    idx % 2 === 0 ? 'sm:flex-row-reverse' : ''
+                  }`}
+                >
+                  <div className="sm:w-1/2 pl-12 sm:pl-0">
+                    <div
+                      className={`p-6 rounded-2xl bg-[#f7f9f0] border border-lime-200/60 shadow-sm ${
+                        idx % 2 === 0 ? 'sm:text-right' : 'sm:text-left'
+                      }`}
+                    >
+                      <span className="text-primary-600 font-extrabold text-lg block font-[family-name:var(--font-display)]">
+                        {milestone.year}
+                      </span>
+                      <h4 className="font-bold text-gray-900 text-base mt-1">
+                        {milestone.title}
+                      </h4>
+                      <p className="text-gray-500 text-xs sm:text-sm mt-2 leading-relaxed">
+                        {milestone.desc}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                {/* Pin node */}
-                <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary-500 text-white flex items-center justify-center font-bold text-xs shadow-md border-4 border-white">
-                  {idx + 1}
-                </div>
+                  {/* Pin node */}
+                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary-500 text-white flex items-center justify-center font-bold text-xs shadow-md border-4 border-white">
+                    {idx + 1}
+                  </div>
 
-                <div className="hidden sm:block sm:w-1/2" />
-              </div>
-            ))}
+                  <div className="hidden sm:block sm:w-1/2" />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Bottom CTA */}
       <section className="py-16 bg-gradient-to-r from-[#98B155] to-[#F6869D] text-white text-center">

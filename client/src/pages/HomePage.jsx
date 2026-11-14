@@ -30,7 +30,7 @@ export default function HomePage() {
   // Animated counters
   const countCups = useCountUp(20000, 2200)
   const countToppings = useCountUp(40, 1800)
-  const countStores = useCountUp(42, 2000)
+  const countStores = useCountUp(10, 1500)
 
   useEffect(() => {
     async function loadData() {
@@ -585,8 +585,8 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-center gap-3 text-xs text-gray-600">
                     <Phone size={15} className="text-primary-500 shrink-0" />
-                    <a href="tel:0908639279" className="font-bold text-primary-600 hover:underline">
-                      Hotline: 0908 639 279
+                    <a href="tel:0859590010" className="font-bold text-primary-600 hover:underline">
+                      Hotline: 0859590010
                     </a>
                   </div>
                 </div>

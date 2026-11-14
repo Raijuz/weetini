@@ -38,8 +38,8 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="text-2xl font-bold font-[family-name:var(--font-display)] tracking-wide">WEE TINI</h3>
-                <p className="text-[10px] tracking-[0.2em] uppercase text-white/50">
-                  {lang === 'en' ? 'Vietnamese Tea' : 'Trà sữa Việt'}
+                <p className="text-[10px] tracking-[0.08em] font-medium text-white/60">
+                  Wee Fun, Wee Chill, Wee Slay
                 </p>
               </div>
             </Link>

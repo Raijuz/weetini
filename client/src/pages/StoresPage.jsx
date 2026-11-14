@@ -18,8 +18,9 @@ export default function StoresPage() {
     { id: 'Phú Nhuận', label: 'Phú Nhuận' },
     { id: 'Gò Vấp', label: 'Gò Vấp' },
     { id: 'Thủ Đức', label: 'TP. Thủ Đức' },
-    { id: 'Bình Dương', label: 'Bình Dương' },
-    { id: 'Biên Hòa', label: 'Biên Hòa' },
+    { id: 'Huế', label: 'Huế' },
+    { id: 'Phan Thiết', label: 'Phan Thiết' },
+    { id: 'Đà Nẵng', label: 'Đà Nẵng' },
   ]
 
   useEffect(() => {

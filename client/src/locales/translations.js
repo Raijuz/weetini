@@ -41,7 +41,7 @@ export const translations = {
       heroFeatureTea: 'Trà Chọn Lọc',
       heroFeatureFruit: 'Trái Cây Tươi',
       heroFeatureBrew: 'Pha Chế Mỗi Ngày',
-      heroStatsStores: '40+',
+      heroStatsStores: '10+',
       heroStatsStoresLabel: 'Tuyển chọn mỗi ngày',
       heroStatsTea: '100%',
       heroStatsTeaLabel: 'Trà tự nhiên sạch',
@@ -52,7 +52,7 @@ export const translations = {
 
       overviewBadge: 'Chuyện nhà Wee',
       overviewTitle: 'TỔNG QUAN VỀ THƯƠNG HIỆU',
-      overviewP1: 'WEE TINI, thành lập vào năm 2026, đã không ngừng phát triển trong suốt hơn 6 năm qua với hơn 40 cửa hàng trải rộng khắp TP. Hồ Chí Minh, Biên Hòa và Bình Dương.',
+      overviewP1: 'WEE TINI, thành lập vào năm 2026, đã và đang không ngừng phát triển trong suốt thời gian qua với hơn 10 cửa hàng trải rộng khắp TP. Hồ Chí Minh, Huế, Phan Thiết, Đà Nẵng.',
       overviewP2: 'Với chất lượng đặc trưng và dịch vụ tận tâm, thương hiệu đã nhanh chóng chiếm được tình cảm và sự yêu mến của đông đảo khách hàng. Triết lý của WEE TINI là mang đến trải nghiệm đồ uống chuẩn vị, giản đơn mà tinh tế, đáp ứng nhịp sống hiện đại năng động.',
       statCupsTitle: 'Ly trà sữa',
       statCupsSub: 'bán ra mỗi ngày',
@@ -60,7 +60,7 @@ export const translations = {
       statToppingsSub: 'phong phú khác nhau',
       statStoresTitle: 'Cửa hàng',
       statStoresSub: 'trên khắp các tỉnh thành',
-      overviewLink: 'Tìm hiểu hành trình phát triển của WEE TINI',
+      overviewLink: 'Tìm hiểu câu chuyện WEE TINI',
 
       menuBadge: 'Hương Vị Đặc Trưng',
       menuTitle: 'MENU ĐỒ UỐNG CHỌN LỌC',
@@ -73,19 +73,19 @@ export const translations = {
       spotlightDesc: 'Matcha Uji nguyên chất với hương trà xanh thanh nhẹ, thoảng chút đắng dịu hòa quyện cùng sữa dâu béo mịn và ngọt thơm. Sự giao thoa giữa sắc xanh và hồng tạo nên một thức uống vừa tinh tế vừa đáng yêu.',
       spotlightAction: 'Thưởng thức ngay',
       spotlightStoreLink: 'Ghé cửa hàng gần bạn',
-      spotlightPrice: 'Giá chỉ 45.000đ',
+      spotlightPrice: 'Giá chỉ 50.000đ',
 
       whyBadge: 'Cam Kết Thương Hiệu',
-      whyTitle: 'VÌ SAO KHÁCH HÀNG CHỌN WEETINI?',
+      whyTitle: 'VÌ SAO KHÁCH HÀNG CHỌN WEE TINI?',
       whyDesc: 'Chúng tôi chú trọng vào từng chi tiết để mang lại ly trà thơm ngon nhất cho bạn.',
       whyItems: [
         {
           title: 'Trà Sạch Cao Nguyên',
-          desc: 'Được ủ từ lá trà nguyên chất tuyển chọn từ Bảo Lộc & Assam, không sử dụng hương liệu tạo mùi nhân tạo.',
+          desc: 'Được ủ từ lá trà nguyên chất tuyển chọn từ Thái Nguyên & Bảo Lộc, không sử dụng hương liệu tạo mùi nhân tạo.',
         },
         {
           title: 'Chuẩn Vị Đồng Nhất',
-          desc: 'Quy trình pha chế chuẩn xác từng gram nguyên liệu, bảo đảm chất lượng đồng đều tại tất cả 40+ cơ sở.',
+          desc: 'Quy trình pha chế chuẩn xác từng gram nguyên liệu, bảo đảm chất lượng đồng đều tại tất cả 10+ cơ sở.',
         },
         {
           title: 'Phục Vụ Siêu Tốc',
@@ -93,7 +93,7 @@ export const translations = {
         },
         {
           title: 'Giá Thành Thân Thiện',
-          desc: 'Mức giá vừa vặn túi tiền học sinh, sinh viên và dân công sở, chỉ từ 20.000đ - 45.000đ.',
+          desc: 'Mức giá vừa vặn túi tiền học sinh, sinh viên và dân công sở, chỉ từ 30.000đ - 85.000đ.',
         },
       ],
 
@@ -105,15 +105,15 @@ export const translations = {
       storeTeaserHours: '08:00 - 22:30 • Giao hàng tận nơi & Take-away',
 
       franchiseCtaBadge: 'Cơ Hội Đầu Tư',
-      franchiseCtaTitle: 'HỢP TÁC NHƯỢNG QUYỀN CÙNG WEETINI',
+      franchiseCtaTitle: 'HỢP TÁC NHƯỢNG QUYỀN CÙNG WEE TINI',
       franchiseCtaDesc: 'Mô hình tinh gọn, chi phí đầu tư ban đầu hợp lý từ 150 triệu, hỗ trợ trọn gói từ mặt bằng, đào tạo nhân sự đến marketing khai trương. Hoàn vốn nhanh trong 12 - 18 tháng!',
       franchiseCtaBtn: 'Tìm hiểu chính sách nhượng quyền',
       franchiseCtaJoin: 'Gia nhập đội ngũ WEE TINI',
     },
     about: {
       bannerBadge: 'Chuyện nhà Wee',
-      bannerTitle: 'CÂU CHUYỆN THƯƠNG HIỆU WEETINI',
-      bannerDesc: 'Hơn 6 năm nỗ lực không ngừng, gìn giữ hương vị trà sữa Việt nguyên bản và mang đến niềm vui giản đơn mỗi ngày.',
+      bannerTitle: 'CÂU CHUYỆN THƯƠNG HIỆU WEE TINI',
+      bannerDesc: 'WEE TINI không ngừng phát triển, gìn giữ hương vị trà sữa và nước ép nguyên bản, mang đến niềm vui giản đơn mỗi ngày.',
       journeyBadge: 'Tầm Nhìn & Sứ Mệnh',
       journeyTitle: 'TẦM NHÌN, SỨ MỆNH & HÀNH TRÌNH PHÁT TRIỂN',
       journeyP1: 'Được thành lập vào năm 2026, WEE TINI khởi nguồn từ niềm đam mê khám phá những tầng hương tinh tế của trà và trái cây tươi. Chúng tôi chọn lọc nguyên liệu chất lượng, nâng niu từng công đoạn pha chế để mang đến những thức uống tươi ngon, trọn vị.',
@@ -131,7 +131,7 @@ export const translations = {
       customersTitle: 'Khách Hàng Là Trọng Tâm',
       customersDesc: 'Không ngừng lắng nghe, cải tiến hương vị và nâng tầm chất lượng dịch vụ để mang lại niềm vui trọn vẹn trong từng ly trà.',
       qualityTitle: 'Chất Lượng Vượt Trội',
-      qualityDesc: 'Cam kết 100% lá trà thiên nhiên từ Bảo Lộc & Assam, nguồn sữa sạch thanh trùng và topping tươi mới nấu trong ngày.',
+      qualityDesc: 'Cam kết 100% lá trà thiên nhiên từ Thái Nguyên & Bảo Lộc, nguồn sữa sạch thanh trùng và topping tươi mới nấu trong ngày.',
       valuesBadge: 'Chuẩn Mực Hoạt Động',
       valuesTitle: 'GIÁ TRỊ CỐT LÕI CỦA CHÚNG TÔI',
       valuesDesc: 'Những nguyên tắc bất biến định hình nên từng sản phẩm và văn hóa phục vụ của WEE TINI.',
@@ -162,22 +162,17 @@ export const translations = {
           desc: 'Khai trương quầy trà sữa WEE TINI đầu tiên tại TP.HCM với thông điệp trà sữa sạch, giá bình dân.',
         },
         {
-          year: '2020',
-          title: 'Vượt sóng & Mở rộng',
-          desc: 'Cán mốc 15 chi nhánh phủ sóng khắp các quận trung tâm, nâng cấp quy trình đóng gói take-away chuẩn hóa.',
+          year: '2026',
+          title: 'Vươn xa các tỉnh thành',
+          desc: 'Mở rộng chuỗi đến Huế, Phan Thiết và Đà Nẵng, nâng tổng số lên hơn 10 cửa hàng phục vụ đông đảo khách hàng.',
         },
         {
-          year: '2022',
-          title: 'Tiến ra các tỉnh lân cận',
-          desc: 'Mở rộng chuỗi đến Bình Dương và Biên Hòa, nâng tổng số cửa hàng lên 28 điểm bán.',
-        },
-        {
-          year: '2024',
-          title: 'Bứt phá 40+ Cửa Hàng',
-          desc: 'Trở thành thương hiệu take-away hàng đầu với hơn 20.000 ly bán ra mỗi ngày và hệ thống nhượng quyền chuyên nghiệp.',
+          year: '2026',
+          title: 'Bứt phá 10+ Cửa Hàng',
+          desc: 'Trở thành thương hiệu take-away được yêu mến với triết lý mang đến trải nghiệm đồ uống chuẩn vị, giản đơn mà tinh tế.',
         },
       ],
-      ctaTitle: 'SẴN SÀNG THƯỞNG THỨC WEETINI?',
+      ctaTitle: 'SẴN SÀNG THƯỞNG THỨC WEE TINI?',
       ctaDesc: 'Hãy ghé ngay cửa hàng gần bạn hoặc đặt giao hàng qua ứng dụng để trải nghiệm vị trà chuẩn ngon hôm nay!',
       ctaMenu: 'Khám phá Menu ngay',
       ctaFranchise: 'Hợp tác nhượng quyền',
@@ -202,8 +197,8 @@ export const translations = {
     },
     stores: {
       bannerBadge: 'Mạng Lưới Phục Vụ',
-      bannerTitle: 'HỆ THỐNG CỬA HÀNG WEETINI',
-      bannerDesc: 'Hơn 40 cửa hàng luôn sẵn sàng đón tiếp và phục vụ bạn những ly trà sữa tươi mát nhất mỗi ngày.',
+      bannerTitle: 'HỆ THỐNG CỬA HÀNG WEE TINI',
+      bannerDesc: 'Hơn 10 cửa hàng luôn sẵn sàng đón tiếp và phục vụ bạn những ly trà sữa tươi mát nhất mỗi ngày.',
       searchPlaceholder: 'Nhập tên đường, phường hoặc quận để tìm kiếm nhanh...',
       allDistricts: 'Tất cả khu vực',
       foundStores: 'Tìm thấy {count} cửa hàng phù hợp',
@@ -226,12 +221,12 @@ export const translations = {
       },
       noStores: 'Không tìm thấy cửa hàng nào',
       noStoresDesc: 'Vui lòng thử chọn quận khác hoặc từ khóa tìm kiếm khác.',
-      openAppBanner: 'ĐẶT WEETINI QUA ỨNG DỤNG',
+      openAppBanner: 'ĐẶT WEE TINI QUA ỨNG DỤNG',
       openAppDesc: 'Không tiện ghé quán? Đặt món giao tận tay qua GrabFood, ShopeeFood với nhiều ưu đãi giảm giá đến 50%!',
     },
     franchise: {
       bannerBadge: 'Cơ Hội Hợp Tác Đầu Tư',
-      bannerTitle: 'NHƯỢNG QUYỀN THƯƠNG HIỆU WEETINI',
+      bannerTitle: 'NHƯỢNG QUYỀN THƯƠNG HIỆU WEE TINI',
       bannerDesc: 'Đồng hành cùng thương hiệu trà sữa take-away hàng đầu với mô hình kinh doanh tinh gọn, tỉ suất sinh lời cao và hoàn vốn nhanh từ 12-18 tháng.',
       benefits: [
         {
@@ -252,7 +247,7 @@ export const translations = {
         },
       ],
       processBadge: 'Lộ Trình Rõ Ràng',
-      processTitle: '6 BƯỚC KHỞI NGHIỆP CÙNG WEETINI',
+      processTitle: '6 BƯỚC KHỞI NGHIỆP CÙNG WEE TINI',
       processDesc: 'Quy trình hợp tác minh bạch, chuẩn hóa và nhanh chóng từ lúc đăng ký đến ngày khai trương bùng nổ.',
       steps: [
         { step: '01', title: 'Đăng Ký Tư Vấn', desc: 'Điền form thông tin hoặc liên hệ hotline để nhận bộ tài liệu nhượng quyền chi tiết.' },
@@ -275,7 +270,7 @@ export const translations = {
       ],
       financialBadge: 'Hiệu Quả Kinh Doanh',
       financialTitle: 'CHỈ SỐ TÀI CHÍNH TIÊU CHUẨN',
-      financialDesc: 'Dựa trên số liệu thực tế vận hành từ hơn 40 cửa hàng WEE TINI đang hoạt động.',
+      financialDesc: 'Dựa trên số liệu thực tế vận hành từ hơn 10 cửa hàng WEE TINI đang hoạt động.',
       financialMetrics: [
         { label: 'Doanh thu trung bình/tháng', value: '180 - 320 Triệu' },
         { label: 'Tỉ suất lợi nhuận ròng', value: '25% - 35%' },
@@ -315,7 +310,7 @@ export const translations = {
     },
     recruitment: {
       bannerBadge: 'Gia Nhập Ngôi Nhà Chung',
-      bannerTitle: 'CƠ HỘI NGHỀ NGHIỆP TẠI WEETINI',
+      bannerTitle: 'CƠ HỘI NGHỀ NGHIỆP TẠI WEE TINI',
       bannerDesc: 'Môi trường làm việc trẻ trung, năng động, thu nhập hấp dẫn và lộ trình thăng tiến rõ ràng cho người trẻ đam mê F&B.',
       perks: [
         {
@@ -445,7 +440,7 @@ export const translations = {
       close: 'Đóng',
     },
     footer: {
-      brandDesc: 'WEE TINI đã trở thành thương hiệu trà sữa take away đứng TOP bán chạy nhất hiện nay. Với hơn 40 cửa hàng khắp Hồ Chí Minh, Bình Dương và Biên Hòa.',
+      brandDesc: 'WEE TINI, thành lập vào năm 2026, đã và đang không ngừng phát triển trong suốt thời gian qua với hơn 10 cửa hàng trải rộng khắp TP. Hồ Chí Minh, Huế, Phan Thiết, Đà Nẵng.',
       quickLinksTitle: 'Liên kết nhanh',
       contactTitle: 'Liên hệ',
       addressVal: '37/14A Trịnh Đình Thảo, P. Tân Phú, TP. HCM',
@@ -454,7 +449,7 @@ export const translations = {
       newsletterDesc: 'Nhận thông tin ưu đãi và sản phẩm mới nhất từ WEE TINI.',
       emailPlaceholder: 'Email của bạn',
       sendBtn: 'Gửi',
-      copyright: '© 2024 WEE TINI. All rights reserved.',
+      copyright: '© 2026 WEE TINI. All rights reserved.',
       privacy: 'Chính sách bảo mật',
       terms: 'Điều khoản sử dụng',
     },
@@ -483,6 +478,12 @@ export const translations = {
         description: 'Táo mang nét ngọt thanh, dứa điểm chút hương nhiệt đới và chanh khẽ cân bằng mọi tầng vị. Một cuộc gặp gỡ đầy ngẫu hứng, nơi sự tươi mới trở thành dấu ấn khó quên.',
         ingredients: 'Táo + Dứa + Chanh',
       },
+      'wee-green-suteki': {
+        name: 'Wee Green | Suteki',
+        category: 'Nước Ép & Trái Cây Tươi',
+        description: 'Vị chua thanh giòn ngọt của cóc non hòa quyện cùng ổi tươi chín tới thơm lừng. Bản phối xanh tươi mát lành, giàu vitamin và mang lại nguồn năng lượng sảng khoái tức thì.',
+        ingredients: 'Cóc + Ổi',
+      },
       'wee-fit-niko-niko': {
         name: 'Wee Fit | Niko Niko',
         category: 'Nước Ép & Trái Cây Tươi',
@@ -493,7 +494,7 @@ export const translations = {
         name: 'Wee Fun | Kirei',
         category: 'Nước Ép & Trái Cây Tươi',
         description: 'Sắc đỏ của dưa hấu và dâu tây mở ra một miền hương vị ngọt ngào, xen chút chua dịu đầy duyên dáng. Tựa một niềm vui nhỏ được gói ghém trong sắc màu của mùa hè.',
-        ingredients: 'Dưa hấu + Dâu tây',
+        ingredients: 'Dưa hấu + Dâu Tây',
       },
       'wee-bootiful-bijin': {
         name: 'Wee Bootiful | Bijin',
@@ -503,7 +504,7 @@ export const translations = {
       },
       'wee-peachy-kanpeki': {
         name: 'Wee Peachy | Kanpeki',
-        category: 'Trà Trái Cây',
+        category: 'Nước Ép & Trái Cây Tươi',
         description: 'Chanh dây khơi mở tầng vị chua thanh sống động, trong khi hibiscus tô điểm sắc đỏ quyến rũ cùng hương hoa dịu nhẹ. Một nét chấm phá đầy thi vị, lưu lại dư âm thanh mát sau mỗi lần thưởng thức.',
         ingredients: 'Chanh dây + Hibiscus',
       },
@@ -638,7 +639,7 @@ export const translations = {
       heroFeatureTea: 'Selected Teas',
       heroFeatureFruit: 'Fresh Fruits',
       heroFeatureBrew: 'Daily Crafted',
-      heroStatsStores: '40+',
+      heroStatsStores: '10+',
       heroStatsStoresLabel: 'Hand-picked Daily',
       heroStatsTea: '100%',
       heroStatsTeaLabel: 'Pure Natural Tea',
@@ -649,15 +650,15 @@ export const translations = {
 
       overviewBadge: 'About Us',
       overviewTitle: 'BRAND OVERVIEW & HERITAGE',
-      overviewP1: 'Founded in 2026, WEE TINI has continuously grown over 6 years to establish a network of over 40 stores throughout Ho Chi Minh City, Bien Hoa, and Binh Duong.',
-      overviewP2: 'With our signature recipe and attentive customer care, the brand has won the hearts of thousands of beverage lovers. WEE TINI embodies the spirit of authentic, simple yet elevated tea for dynamic urban lifestyles.',
+      overviewP1: 'Founded in 2026, WEE TINI has continuously grown to establish a network of over 10 stores across Ho Chi Minh City, Hue, Phan Thiet, and Da Nang.',
+      overviewP2: 'With our signature recipe and attentive customer care, the brand has won the hearts of thousands of beverage lovers. The philosophy of WEE TINI is to deliver authentic, simple yet refined beverage experiences for dynamic modern lifestyles.',
       statCupsTitle: 'Cups of milk tea',
       statCupsSub: 'sold every single day',
       statToppingsTitle: 'Tea & topping varieties',
       statToppingsSub: 'rich & handcrafted',
       statStoresTitle: 'Store branches',
       statStoresSub: 'across key provinces',
-      overviewLink: 'Discover the growth journey of WEE TINI',
+      overviewLink: 'Discover the story of WEE TINI',
 
       menuBadge: 'Signature Flavors',
       menuTitle: 'CURATED BEVERAGE MENU',
@@ -670,19 +671,19 @@ export const translations = {
       spotlightDesc: 'Pure ceremonial Uji matcha with gentle earthy tea notes swirled into velvety strawberry milk. A vibrant, photogenic dream of green and pink bliss.',
       spotlightAction: 'Taste Now',
       spotlightStoreLink: 'Find a store near you',
-      spotlightPrice: 'From only 45,000 VND',
+      spotlightPrice: 'From only 50,000 VND',
 
       whyBadge: 'Our Brand Promise',
-      whyTitle: 'WHY CUSTOMERS CHOOSE WEETINI?',
+      whyTitle: 'WHY CUSTOMERS CHOOSE WEE TINI?',
       whyDesc: 'We obsess over every detail so you can enjoy the most refreshing and authentic cup of tea.',
       whyItems: [
         {
           title: 'Highland Clean Tea',
-          desc: 'Brewed exclusively from genuine tea harvests in Bao Loc & Assam, completely free of synthetic aromas.',
+          desc: 'Brewed exclusively from genuine tea harvests in Thai Nguyen & Bao Loc, completely free of synthetic aromas.',
         },
         {
           title: 'Consistent Quality',
-          desc: 'Gram-accurate standard brewing recipes ensuring the exact same taste at all 40+ locations.',
+          desc: 'Gram-accurate standard brewing recipes ensuring the exact same taste at all 10+ locations.',
         },
         {
           title: 'Speedy Service',
@@ -690,7 +691,7 @@ export const translations = {
         },
         {
           title: 'Accessible Pricing',
-          desc: 'Friendly price points designed for students and working professionals, from 20,000 to 45,000 VND.',
+          desc: 'Friendly price points designed for students and working professionals, from 30,000 to 85,000 VND.',
         },
       ],
 
@@ -702,15 +703,15 @@ export const translations = {
       storeTeaserHours: '08:00 AM - 10:30 PM • Take-away & Home Delivery',
 
       franchiseCtaBadge: 'Investment Opportunity',
-      franchiseCtaTitle: 'FRANCHISE PARTNERSHIP WITH WEETINI',
+      franchiseCtaTitle: 'FRANCHISE PARTNERSHIP WITH WEE TINI',
       franchiseCtaDesc: 'Compact footprint model, accessible starting capital from 150M VND, end-to-end guidance from real estate to staff training. Rapid ROI in 12 - 18 months!',
       franchiseCtaBtn: 'Explore Franchise Program',
       franchiseCtaJoin: 'Join the WEE TINI Team',
     },
     about: {
       bannerBadge: 'About Us',
-      bannerTitle: 'THE WEETINI BRAND STORY',
-      bannerDesc: 'Over 6 years of relentless passion, safeguarding authentic Vietnamese milk tea and sharing everyday joy.',
+      bannerTitle: 'THE WEE TINI BRAND STORY',
+      bannerDesc: 'WEE TINI continuously grows and safeguards authentic tea craftsmanship, sharing everyday joy.',
       journeyBadge: 'Vision & Mission',
       journeyTitle: 'VISION, MISSION & JOURNEY OF DEVELOPMENT',
       journeyP1: 'Founded in 2026, WEE TINI originates from a passion for exploring the delicate aroma layers of fresh tea and fruits. We select high-quality ingredients and cherish every brewing process to deliver delicious, fully-flavored beverages.',
@@ -728,7 +729,7 @@ export const translations = {
       customersTitle: 'Customer-Centric',
       customersDesc: 'Listening continuously to elevate recipes, service, and warmth in every cup we hand to you.',
       qualityTitle: 'Exceptional Quality',
-      qualityDesc: '100% natural tea leaves from Bao Loc & Assam, fresh Dalat Milk, and toppings freshly cooked every morning.',
+      qualityDesc: '100% natural tea leaves from Thai Nguyen & Bao Loc, fresh Dalat Milk, and toppings freshly cooked every morning.',
       valuesBadge: 'Our Standards',
       valuesTitle: 'OUR CORE VALUES',
       valuesDesc: 'Timeless principles shaping every recipe and service interaction at WEE TINI.',
@@ -759,22 +760,17 @@ export const translations = {
           desc: 'Opened the first WEE TINI kiosk in HCMC with a commitment to pure tea and accessible pricing.',
         },
         {
-          year: '2020',
-          title: 'Growth & Expansion',
-          desc: 'Reached 15 locations across core urban districts, standardizing take-away hygiene and speed.',
-        },
-        {
-          year: '2022',
+          year: '2026',
           title: 'Regional Expansion',
-          desc: 'Expanded into Binh Duong and Bien Hoa, growing the chain to 28 thriving stores.',
+          desc: 'Expanded into Hue, Phan Thiet, and Da Nang, growing the chain to over 10 thriving stores.',
         },
         {
-          year: '2024',
-          title: 'Milestone 40+ Stores',
-          desc: 'Celebrated becoming a top take-away choice with 20,000+ daily cups and a refined franchise ecosystem.',
+          year: '2026',
+          title: 'Milestone 10+ Stores',
+          desc: 'Celebrated becoming a top take-away choice with authentic flavor philosophy and a refined franchise ecosystem.',
         },
       ],
-      ctaTitle: 'READY TO TASTE WEETINI?',
+      ctaTitle: 'READY TO TASTE WEE TINI?',
       ctaDesc: 'Visit your nearest store or order via food delivery apps to savor standard Vietnamese tea today!',
       ctaMenu: 'View Full Menu',
       ctaFranchise: 'Franchise Cooperation',
@@ -800,7 +796,7 @@ export const translations = {
     stores: {
       bannerBadge: 'Service Network',
       bannerTitle: 'WEETINI STORE DIRECTORY',
-      bannerDesc: 'Over 40 stores ready to welcome and serve you the freshest cups of milk tea every day.',
+      bannerDesc: 'Over 10 stores ready to welcome and serve you the freshest cups of milk tea every day.',
       searchPlaceholder: 'Search by street, ward or district name...',
       allDistricts: 'All Districts',
       foundStores: 'Found {count} matching stores',
@@ -823,12 +819,12 @@ export const translations = {
       },
       noStores: 'No stores found',
       noStoresDesc: 'Please try selecting another district or checking your search query.',
-      openAppBanner: 'ORDER WEETINI VIA DELIVERY APPS',
+      openAppBanner: 'ORDER WEE TINI VIA DELIVERY APPS',
       openAppDesc: 'Can’t visit in person? Enjoy fast delivery through GrabFood and ShopeeFood with exclusive discounts up to 50%!',
     },
     franchise: {
       bannerBadge: 'Investment Opportunity',
-      bannerTitle: 'WEETINI BRAND FRANCHISING',
+      bannerTitle: 'WEE TINI BRAND FRANCHISING',
       bannerDesc: 'Partner with Vietnam’s premier take-away milk tea brand featuring a lean operating model, high profitability, and payback in 12-18 months.',
       benefits: [
         {
@@ -849,7 +845,7 @@ export const translations = {
         },
       ],
       processBadge: 'Clear Roadmap',
-      processTitle: '6 STEPS TO LAUNCH WITH WEETINI',
+      processTitle: '6 STEPS TO LAUNCH WITH WEE TINI',
       processDesc: 'A transparent, standardized, and streamlined partnership journey from initial inquiry to grand opening.',
       steps: [
         { step: '01', title: 'Consultation Request', desc: 'Submit the registration form or call our hotline to receive the detailed franchise prospectus.' },
@@ -872,7 +868,7 @@ export const translations = {
       ],
       financialBadge: 'Business Performance',
       financialTitle: 'STANDARD FINANCIAL METRICS',
-      financialDesc: 'Based on actual operating averages across 40+ active WEE TINI franchise stores.',
+      financialDesc: 'Based on actual operating averages across 10+ active WEE TINI franchise stores.',
       financialMetrics: [
         { label: 'Average Monthly Revenue', value: '180 - 320M VND' },
         { label: 'Net Profit Margin', value: '25% - 35%' },
@@ -912,7 +908,7 @@ export const translations = {
     },
     recruitment: {
       bannerBadge: 'Join Our Family',
-      bannerTitle: 'CAREER OPPORTUNITIES AT WEETINI',
+      bannerTitle: 'CAREER OPPORTUNITIES AT WEE TINI',
       bannerDesc: 'A dynamic, youthful workplace with competitive compensation and transparent promotion paths in F&B.',
       perks: [
         {
@@ -1042,7 +1038,7 @@ export const translations = {
       close: 'Close',
     },
     footer: {
-      brandDesc: 'WEE TINI has emerged as one of the best-selling take-away milk tea brands, operating over 40 stores throughout Ho Chi Minh City, Binh Duong, and Bien Hoa.',
+      brandDesc: 'Founded in 2026, WEE TINI has continuously grown to establish a network of over 10 stores across Ho Chi Minh City, Hue, Phan Thiet, and Da Nang.',
       quickLinksTitle: 'Quick Links',
       contactTitle: 'Contact',
       addressVal: '37/14A Trinh Dinh Thao, Tan Phu Ward, Ho Chi Minh City',
@@ -1051,7 +1047,7 @@ export const translations = {
       newsletterDesc: 'Get our latest promotions and seasonal creations straight to your inbox.',
       emailPlaceholder: 'Your email address',
       sendBtn: 'Subscribe',
-      copyright: '© 2024 WEE TINI. All rights reserved.',
+      copyright: '© 2026 WEE TINI. All rights reserved.',
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',
     },
@@ -1080,6 +1076,12 @@ export const translations = {
         description: 'Crisp apple sweetness, tropical pineapple aroma, and balanced lime zest unite in an impromptu encounter of unforgettable freshness.',
         ingredients: 'Crisp Apple + Pineapple + Lime',
       },
+      'wee-green-suteki': {
+        name: 'Wee Green | Suteki',
+        category: 'Fresh Juice & Fruits',
+        description: 'Crisp, tangy golden apple (cóc) blended with fresh fragrant guava. A refreshingly pure green potion loaded with vitamin C and invigorating energy.',
+        ingredients: 'Golden Apple (Cóc) + Fresh Guava',
+      },
       'wee-fit-niko-niko': {
         name: 'Wee Fit | Niko Niko',
         category: 'Fresh Juice & Fruits',
@@ -1100,7 +1102,7 @@ export const translations = {
       },
       'wee-peachy-kanpeki': {
         name: 'Wee Peachy | Kanpeki',
-        category: 'Fruit Tea',
+        category: 'Fresh Juice & Fruits',
         description: 'Vibrant passion fruit tanginess complemented by the poetic ruby hues and soft floral aroma of hibiscus. Refreshingly memorable.',
         ingredients: 'Passion Fruit + Hibiscus Flower',
       },
