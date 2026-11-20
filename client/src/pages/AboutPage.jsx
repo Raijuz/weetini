@@ -22,9 +22,9 @@ export default function AboutPage() {
       <section className="relative bg-gradient-to-r from-[#98B155] to-[#F6869D] text-white py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img
-            src="/images/hero-banner.jpg"
+            src="/images/banner.jpg?v=2"
             alt="WEE TINI Background"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
@@ -207,15 +207,13 @@ export default function AboutPage() {
               {milestones.map((milestone, idx) => (
                 <div
                   key={idx}
-                  className={`relative flex flex-col sm:flex-row items-start sm:items-center gap-6 ${
-                    idx % 2 === 0 ? 'sm:flex-row-reverse' : ''
-                  }`}
+                  className={`relative flex flex-col sm:flex-row items-start sm:items-center gap-6 ${idx % 2 === 0 ? 'sm:flex-row-reverse' : ''
+                    }`}
                 >
                   <div className="sm:w-1/2 pl-12 sm:pl-0">
                     <div
-                      className={`p-6 rounded-2xl bg-[#f7f9f0] border border-lime-200/60 shadow-sm ${
-                        idx % 2 === 0 ? 'sm:text-right' : 'sm:text-left'
-                      }`}
+                      className={`p-6 rounded-2xl bg-[#f7f9f0] border border-lime-200/60 shadow-sm ${idx % 2 === 0 ? 'sm:text-right' : 'sm:text-left'
+                        }`}
                     >
                       <span className="text-primary-600 font-extrabold text-lg block font-[family-name:var(--font-display)]">
                         {milestone.year}

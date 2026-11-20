@@ -52,9 +52,9 @@ export default function ContactPage() {
       <section className="relative bg-gradient-to-r from-[#98B155] via-[#859f47] to-[#F6869D] text-white py-18 sm:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-15">
           <img
-            src="/images/hero-banner.jpg"
+            src="/images/banner.jpg?v=2"
             alt="WEE TINI Background"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">

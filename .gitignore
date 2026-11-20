@@ -25,3 +25,6 @@ build/
 .pytest_cache/
 .mypy_cache/
 .coverage
+
+# Stored leads and uploads
+server/data/

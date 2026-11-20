@@ -19,7 +19,7 @@ export default function FranchisePage() {
     phone: '',
     email: '',
     address: '',
-    investment_budget: '150 - 250 triệu',
+    investment_budget: '106 - 250 triệu',
     message: '',
   })
   const [submitting, setSubmitting] = useState(false)
@@ -35,12 +35,16 @@ export default function FranchisePage() {
     setSubmitting(true)
     const res = await submitFranchiseForm(formData)
     setSubmitting(false)
-    setSubmitted(true)
-    setResponseMsg(
-      lang === 'en'
-        ? 'Thank you! Our franchise consultant will call you within 24 hours.'
-        : res.message || 'Đăng ký thành công!'
-    )
+    if (res.success) {
+      setSubmitted(true)
+      setResponseMsg(
+        lang === 'en'
+          ? 'Thank you! Our franchise consultant will call you within 24 hours.'
+          : res.message || 'Đăng ký thành công!'
+      )
+    } else {
+      alert(res.message || 'Có lỗi xảy ra khi gửi thông tin. Vui lòng thử lại!')
+    }
   }
 
   const benefitIcons = [TrendingUp, GraduationCap, Truck, Megaphone]

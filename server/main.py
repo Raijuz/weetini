@@ -3,11 +3,34 @@ WEE TINI - Bubble Tea Brand Backend API
 Built with FastAPI
 """
 
-from fastapi import FastAPI, HTTPException
+import os
+import json
+import smtplib
+from datetime import datetime
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from typing import Optional
+
+from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Optional
 import uvicorn
+
+# Auto load environment variables from .env if present
+def _load_env():
+    for p in [".env", "server/.env", "../server/.env", os.path.join(os.path.dirname(__file__), ".env")]:
+        if os.path.isfile(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    for line in f:
+                        line = line.strip()
+                        if line and not line.startswith("#") and "=" in line:
+                            k, v = line.split("=", 1)
+                            os.environ[k.strip()] = v.strip().strip('"').strip("'")
+            except Exception:
+                pass
+
+_load_env()
 
 app = FastAPI(
     title="WEE TINI API",
@@ -18,7 +41,8 @@ app = FastAPI(
 # CORS middleware for React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origin_regex=r"https?://.*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -37,8 +61,8 @@ class ContactForm(BaseModel):
 class FranchiseForm(BaseModel):
     name: str
     phone: str
-    email: str
-    address: str
+    email: Optional[str] = ""
+    address: Optional[str] = ""
     investment_budget: Optional[str] = None
     message: Optional[str] = None
 
@@ -531,7 +555,7 @@ FRANCHISE_DATA = {
         {"icon": "bullhorn", "title": "Marketing tập trung", "desc": "Chiến lược marketing bài bản, hiệu quả"},
     ],
     "investment": {
-        "total": "Từ 150.000.000 VNĐ",
+        "total": "Từ 106.000.000 VNĐ",
         "includes": [
             "Phí nhượng quyền thương hiệu",
             "Thiết kế và thi công cửa hàng",
@@ -627,10 +651,162 @@ async def submit_contact(form: ContactForm):
     return {"success": True, "message": "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất."}
 
 
+def save_franchise_lead(data: dict):
+    """Lưu trữ thông tin khách đăng ký nhượng quyền vào file json nội bộ"""
+    try:
+        data_dir = os.path.join(os.path.dirname(__file__), "data")
+        os.makedirs(data_dir, exist_ok=True)
+        file_path = os.path.join(data_dir, "franchise_leads.json")
+        leads = []
+        if os.path.exists(file_path):
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    leads = json.load(f)
+            except Exception:
+                leads = []
+        leads.append(data)
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(leads, f, ensure_ascii=False, indent=2)
+        print(f"💾 [LEAD LƯU THÀNH CÔNG] Khách: {data.get('name')} - SĐT: {data.get('phone')}")
+    except Exception as e:
+        print(f"❌ [LỖI LƯU LEAD]: {e}")
+
+
+def send_franchise_email_notification(data: dict):
+    """Gửi email thông báo nhượng quyền qua SMTP"""
+    _load_env()
+    receiver = os.getenv("FRANCHISE_NOTIFICATION_EMAIL", "Weetinicreative@gmail.com")
+    smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
+    smtp_port = int(os.getenv("SMTP_PORT", "587"))
+    smtp_user = os.getenv("SMTP_USER", "")
+    smtp_password = os.getenv("SMTP_PASSWORD", "")
+
+    name = data.get("name", "N/A")
+    phone = data.get("phone", "N/A")
+    email = data.get("email", "N/A")
+    address = data.get("address", "N/A")
+    budget = data.get("investment_budget", "N/A")
+    message = data.get("message") or "Không có ghi chú thêm"
+    submitted_at = data.get("created_at", datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+
+    if not smtp_user or not smtp_password:
+        print(f"⚠️ [SMTP CHƯA CẤU HÌNH] Chưa có SMTP_USER/SMTP_PASSWORD trong .env.")
+        print(f"   Email thông báo dự kiến gửi tới: {receiver}")
+        print(f"   Thông tin đối tác: {name} | {phone} | {address} | Vốn: {budget}")
+        return False
+
+    try:
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = f"[WEE TINI] 🔔 Đăng ký nhượng quyền: {name} - {phone}"
+        msg["From"] = f"WEE TINI Franchise <{smtp_user}>"
+        msg["To"] = receiver
+
+        html_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f7f9f0; margin: 0; padding: 20px; }}
+            .container {{ max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }}
+            .header {{ background: linear-gradient(135deg, #98B155 0%, #F6869D 100%); padding: 30px 24px; text-align: center; color: #ffffff; }}
+            .header h1 {{ margin: 0; font-size: 26px; font-weight: 800; letter-spacing: 1px; }}
+            .header p {{ margin: 6px 0 0 0; opacity: 0.95; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }}
+            .content {{ padding: 28px 24px; }}
+            .lead-card {{ background: #fafbf6; border-left: 4px solid #98B155; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; }}
+            .field-table {{ width: 100%; border-collapse: collapse; }}
+            .field-table td {{ padding: 12px 6px; border-bottom: 1px dashed #e2e8f0; font-size: 14px; vertical-align: top; }}
+            .field-label {{ width: 170px; font-weight: 700; color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.3px; }}
+            .field-value {{ color: #0f172a; font-weight: 600; }}
+            .field-value a {{ color: #98B155; text-decoration: none; }}
+            .budget-tag {{ display: inline-block; background: #ffe4e6; color: #e11d48; padding: 3px 10px; border-radius: 9999px; font-weight: 700; font-size: 13px; }}
+            .message-box {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; color: #334155; font-size: 14px; line-height: 1.6; }}
+            .action-btn {{ display: inline-block; background: #98B155; color: #ffffff !important; padding: 14px 28px; border-radius: 12px; font-weight: 700; font-size: 14px; text-decoration: none; margin-top: 24px; text-align: center; box-shadow: 0 4px 12px rgba(152,177,85,0.3); }}
+            .footer {{ background: #f8fafc; padding: 16px 24px; text-align: center; font-size: 12px; color: #94a3b8; border-top: 1px solid #f1f5f9; }}
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>WEE TINI</h1>
+              <p>🔔 ĐĂNG KÝ NHƯỢNG QUYỀN MỚI</p>
+            </div>
+            <div class="content">
+              <div class="lead-card">
+                <strong>Đối tác đăng ký:</strong> {name} • <a href="tel:{phone}" style="color: #98B155; font-weight: bold;">{phone}</a>
+              </div>
+              <table class="field-table">
+                <tr>
+                  <td class="field-label">Họ và tên:</td>
+                  <td class="field-value">{name}</td>
+                </tr>
+                <tr>
+                  <td class="field-label">Số điện thoại:</td>
+                  <td class="field-value"><a href="tel:{phone}">{phone}</a></td>
+                </tr>
+                <tr>
+                  <td class="field-label">Email đối tác:</td>
+                  <td class="field-value"><a href="mailto:{email}">{email}</a></td>
+                </tr>
+                <tr>
+                  <td class="field-label">Khu vực muốn mở:</td>
+                  <td class="field-value">{address}</td>
+                </tr>
+                <tr>
+                  <td class="field-label">Vốn đầu tư dự kiến:</td>
+                  <td class="field-value"><span class="budget-tag">{budget}</span></td>
+                </tr>
+                <tr>
+                  <td class="field-label">Thời gian đăng ký:</td>
+                  <td class="field-value">{submitted_at}</td>
+                </tr>
+              </table>
+              <div style="padding-top: 16px;">
+                <div class="field-label" style="margin-bottom: 8px;">Lời nhắn / Câu hỏi của đối tác:</div>
+                <div class="message-box">{message}</div>
+              </div>
+              <div style="text-align: center;">
+                <a href="tel:{phone}" class="action-btn">📞 BẤM ĐỂ GỌI ĐỐI TÁC NGAY</a>
+              </div>
+            </div>
+            <div class="footer">
+              Email thông báo tự động từ hệ thống Website WEE TINI • Wee Fun, Wee Chill, Wee Slay
+            </div>
+          </div>
+        </body>
+        </html>
+        """
+
+        msg.attach(MIMEText(html_content, "html", "utf-8"))
+
+        server = smtplib.SMTP(smtp_server, smtp_port, timeout=15)
+        server.starttls()
+        server.login(smtp_user, smtp_password)
+        server.send_message(msg)
+        server.quit()
+        print(f"✅ [EMAIL ĐÃ GỬI THÀNH CÔNG] Tới: {receiver}")
+        return True
+    except Exception as e:
+        print(f"❌ [LỖI GỬI EMAIL]: {e}")
+        return False
+
+
 @app.post("/api/franchise/register")
-async def submit_franchise(form: FranchiseForm):
-    # In production, save to database and send notification
-    return {"success": True, "message": "Cảm ơn bạn đã quan tâm đến nhượng quyền WEE TINI! Chúng tôi sẽ liên hệ sớm."}
+async def submit_franchise(form: FranchiseForm, background_tasks: BackgroundTasks):
+    data = form.model_dump() if hasattr(form, "model_dump") else form.dict()
+    data["created_at"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    # 1. Lưu trữ cục bộ đảm bảo không bị thất thoát thông tin khách hàng
+    save_franchise_lead(data)
+
+    # 2. Gửi email thông báo ngầm (background task)
+    background_tasks.add_task(send_franchise_email_notification, data)
+
+    return {
+        "success": True,
+        "message": "Cảm ơn bạn đã quan tâm đến nhượng quyền WEE TINI! Chuyên viên tư vấn sẽ liên hệ lại trong vòng 24 giờ."
+    }
 
 
 @app.post("/api/orders")

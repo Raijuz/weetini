@@ -396,15 +396,14 @@ export const DEFAULT_FRANCHISE = {
     }
   ],
   steps: [
-    { step: '01', title: 'Đăng ký tư vấn', desc: 'Để lại thông tin liên hệ và trao đổi trực tiếp cùng đội ngũ phát triển mặt bằng' },
-    { step: '02', title: 'Khảo sát mặt bằng', desc: 'Đội ngũ chuyên gia thẩm định lưu lượng khách và tính khả thi của địa điểm' },
-    { step: '03', title: 'Ký kết hợp đồng', desc: 'Thống nhất điều khoản hợp tác pháp lý minh bạch và kế hoạch triển khai' },
-    { step: '04', title: 'Thiết kế & Thi công', desc: 'Set up không gian theo bộ nhận diện thương hiệu chuẩn WEE TINI' },
-    { step: '05', title: 'Đào tạo nhân sự', desc: 'Đào tạo công thức pha chế, quy chuẩn dịch vụ và vận hành phần mềm' },
-    { step: '06', title: 'Khai trương bùng nổ', desc: 'Tung chương trình khuyến mãi ra mắt và hỗ trợ vận hành trực tiếp ngày đầu' },
+    { step: '01', title: 'Đăng ký tư vấn', desc: 'Để lại thông tin liên hệ và trao đổi trực tiếp cùng đội ngũ tư vấn nhượng quyền' },
+    { step: '02', title: 'Ký kết hợp đồng', desc: 'Thống nhất điều khoản hợp tác pháp lý minh bạch và kế hoạch triển khai' },
+    { step: '03', title: 'Thiết kế & Thi công', desc: 'Set up không gian theo bộ nhận diện thương hiệu chuẩn WEE TINI' },
+    { step: '04', title: 'Đào tạo nhân sự', desc: 'Đào tạo công thức pha chế, quy chuẩn dịch vụ và vận hành phần mềm' },
+    { step: '05', title: 'Khai trương bùng nổ', desc: 'Tung chương trình khuyến mãi ra mắt và hỗ trợ vận hành trực tiếp ngày đầu' },
   ],
   investment: {
-    total: 'Chỉ từ 150.000.000 VNĐ',
+    total: 'Chỉ từ 106.000.000 VNĐ',
     includes: [
       'Phí nhượng quyền sử dụng thương hiệu',
       'Thiết kế 2D/3D và biển hiệu nhận diện',
@@ -528,17 +527,32 @@ export async function submitContactForm(data) {
 }
 
 export async function submitFranchiseForm(data) {
-  try {
-    const res = await fetch(`${API_BASE}/franchise/register`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-    if (res.ok) return await res.json()
-  } catch {
-    // fallback
+  const endpoints = [
+    `${API_BASE}/franchise/register`,
+    '/api/franchise/register',
+    'http://127.0.0.1:8000/api/franchise/register',
+  ]
+  const uniqueEndpoints = [...new Set(endpoints)]
+
+  for (const url of uniqueEndpoints) {
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      if (res.ok) {
+        return await res.json()
+      }
+    } catch {
+      // Tiếp tục thử fallback endpoint khác
+    }
   }
-  return { success: true, message: 'Đăng ký thành công! Chuyên viên nhượng quyền WEE TINI sẽ liên hệ tư vấn trong 24 giờ.' }
+
+  return {
+    success: false,
+    message: 'Không thể kết nối đến máy chủ. Vui lòng kiểm tra lại backend hoặc gọi hotline 0859 590 010!',
+  }
 }
 
 export async function submitOrder(orderData) {
