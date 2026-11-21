@@ -5,11 +5,9 @@ Built with FastAPI
 
 import os
 import json
-import smtplib
 from datetime import datetime
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 from typing import Optional
+import resend
 
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
@@ -673,13 +671,11 @@ def save_franchise_lead(data: dict):
 
 
 def send_franchise_email_notification(data: dict):
-    """Gửi email thông báo nhượng quyền qua SMTP"""
+    """Gửi email thông báo nhượng quyền qua Resend API"""
     _load_env()
+    api_key = os.getenv("RESEND_API_KEY", "")
+    from_email = os.getenv("EMAIL_FROM", "WEE TINI <no-reply@weetini.com>")
     receiver = os.getenv("FRANCHISE_NOTIFICATION_EMAIL", "Weetinicreative@gmail.com")
-    smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
-    smtp_port = int(os.getenv("SMTP_PORT", "587"))
-    smtp_user = os.getenv("SMTP_USER", "")
-    smtp_password = os.getenv("SMTP_PASSWORD", "")
 
     name = data.get("name", "N/A")
     phone = data.get("phone", "N/A")
@@ -689,106 +685,104 @@ def send_franchise_email_notification(data: dict):
     message = data.get("message") or "Không có ghi chú thêm"
     submitted_at = data.get("created_at", datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
 
-    if not smtp_user or not smtp_password:
-        print(f"⚠️ [SMTP CHƯA CẤU HÌNH] Chưa có SMTP_USER/SMTP_PASSWORD trong .env.")
+    if not api_key:
+        print("⚠️ [RESEND CHƯA CẤU HÌNH] Chưa có RESEND_API_KEY trong file .env.")
         print(f"   Email thông báo dự kiến gửi tới: {receiver}")
         print(f"   Thông tin đối tác: {name} | {phone} | {address} | Vốn: {budget}")
         return False
 
-    try:
-        msg = MIMEMultipart("alternative")
-        msg["Subject"] = f"[WEE TINI] 🔔 Đăng ký nhượng quyền: {name} - {phone}"
-        msg["From"] = f"WEE TINI Franchise <{smtp_user}>"
-        msg["To"] = receiver
+    resend.api_key = api_key
 
-        html_content = f"""
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <style>
-            body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f7f9f0; margin: 0; padding: 20px; }}
-            .container {{ max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }}
-            .header {{ background: linear-gradient(135deg, #98B155 0%, #F6869D 100%); padding: 30px 24px; text-align: center; color: #ffffff; }}
-            .header h1 {{ margin: 0; font-size: 26px; font-weight: 800; letter-spacing: 1px; }}
-            .header p {{ margin: 6px 0 0 0; opacity: 0.95; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }}
-            .content {{ padding: 28px 24px; }}
-            .lead-card {{ background: #fafbf6; border-left: 4px solid #98B155; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; }}
-            .field-table {{ width: 100%; border-collapse: collapse; }}
-            .field-table td {{ padding: 12px 6px; border-bottom: 1px dashed #e2e8f0; font-size: 14px; vertical-align: top; }}
-            .field-label {{ width: 170px; font-weight: 700; color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.3px; }}
-            .field-value {{ color: #0f172a; font-weight: 600; }}
-            .field-value a {{ color: #98B155; text-decoration: none; }}
-            .budget-tag {{ display: inline-block; background: #ffe4e6; color: #e11d48; padding: 3px 10px; border-radius: 9999px; font-weight: 700; font-size: 13px; }}
-            .message-box {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; color: #334155; font-size: 14px; line-height: 1.6; }}
-            .action-btn {{ display: inline-block; background: #98B155; color: #ffffff !important; padding: 14px 28px; border-radius: 12px; font-weight: 700; font-size: 14px; text-decoration: none; margin-top: 24px; text-align: center; box-shadow: 0 4px 12px rgba(152,177,85,0.3); }}
-            .footer {{ background: #f8fafc; padding: 16px 24px; text-align: center; font-size: 12px; color: #94a3b8; border-top: 1px solid #f1f5f9; }}
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <h1>WEE TINI</h1>
-              <p>🔔 ĐĂNG KÝ NHƯỢNG QUYỀN MỚI</p>
-            </div>
-            <div class="content">
-              <div class="lead-card">
-                <strong>Đối tác đăng ký:</strong> {name} • <a href="tel:{phone}" style="color: #98B155; font-weight: bold;">{phone}</a>
-              </div>
-              <table class="field-table">
-                <tr>
-                  <td class="field-label">Họ và tên:</td>
-                  <td class="field-value">{name}</td>
-                </tr>
-                <tr>
-                  <td class="field-label">Số điện thoại:</td>
-                  <td class="field-value"><a href="tel:{phone}">{phone}</a></td>
-                </tr>
-                <tr>
-                  <td class="field-label">Email đối tác:</td>
-                  <td class="field-value"><a href="mailto:{email}">{email}</a></td>
-                </tr>
-                <tr>
-                  <td class="field-label">Khu vực muốn mở:</td>
-                  <td class="field-value">{address}</td>
-                </tr>
-                <tr>
-                  <td class="field-label">Vốn đầu tư dự kiến:</td>
-                  <td class="field-value"><span class="budget-tag">{budget}</span></td>
-                </tr>
-                <tr>
-                  <td class="field-label">Thời gian đăng ký:</td>
-                  <td class="field-value">{submitted_at}</td>
-                </tr>
-              </table>
-              <div style="padding-top: 16px;">
-                <div class="field-label" style="margin-bottom: 8px;">Lời nhắn / Câu hỏi của đối tác:</div>
-                <div class="message-box">{message}</div>
-              </div>
-              <div style="text-align: center;">
-                <a href="tel:{phone}" class="action-btn">📞 BẤM ĐỂ GỌI ĐỐI TÁC NGAY</a>
-              </div>
-            </div>
-            <div class="footer">
-              Email thông báo tự động từ hệ thống Website WEE TINI • Wee Fun, Wee Chill, Wee Slay
-            </div>
+    html_content = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f7f9f0; margin: 0; padding: 20px; }}
+        .container {{ max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }}
+        .header {{ background: linear-gradient(135deg, #98B155 0%, #F6869D 100%); padding: 30px 24px; text-align: center; color: #ffffff; }}
+        .header h1 {{ margin: 0; font-size: 26px; font-weight: 800; letter-spacing: 1px; }}
+        .header p {{ margin: 6px 0 0 0; opacity: 0.95; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }}
+        .content {{ padding: 28px 24px; }}
+        .lead-card {{ background: #fafbf6; border-left: 4px solid #98B155; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; }}
+        .field-table {{ width: 100%; border-collapse: collapse; }}
+        .field-table td {{ padding: 12px 6px; border-bottom: 1px dashed #e2e8f0; font-size: 14px; vertical-align: top; }}
+        .field-label {{ width: 170px; font-weight: 700; color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.3px; }}
+        .field-value {{ color: #0f172a; font-weight: 600; }}
+        .field-value a {{ color: #98B155; text-decoration: none; }}
+        .budget-tag {{ display: inline-block; background: #ffe4e6; color: #e11d48; padding: 3px 10px; border-radius: 9999px; font-weight: 700; font-size: 13px; }}
+        .message-box {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; color: #334155; font-size: 14px; line-height: 1.6; }}
+        .action-btn {{ display: inline-block; background: #98B155; color: #ffffff !important; padding: 14px 28px; border-radius: 12px; font-weight: 700; font-size: 14px; text-decoration: none; margin-top: 24px; text-align: center; box-shadow: 0 4px 12px rgba(152,177,85,0.3); }}
+        .footer {{ background: #f8fafc; padding: 16px 24px; text-align: center; font-size: 12px; color: #94a3b8; border-top: 1px solid #f1f5f9; }}
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>WEE TINI</h1>
+          <p>🔔 ĐĂNG KÝ NHƯỢNG QUYỀN MỚI</p>
+        </div>
+        <div class="content">
+          <div class="lead-card">
+            <strong>Đối tác đăng ký:</strong> {name} • <a href="tel:{phone}" style="color: #98B155; font-weight: bold;">{phone}</a>
           </div>
-        </body>
-        </html>
-        """
+          <table class="field-table">
+            <tr>
+              <td class="field-label">Họ và tên:</td>
+              <td class="field-value">{name}</td>
+            </tr>
+            <tr>
+              <td class="field-label">Số điện thoại:</td>
+              <td class="field-value"><a href="tel:{phone}">{phone}</a></td>
+            </tr>
+            <tr>
+              <td class="field-label">Email đối tác:</td>
+              <td class="field-value"><a href="mailto:{email}">{email}</a></td>
+            </tr>
+            <tr>
+              <td class="field-label">Khu vực muốn mở:</td>
+              <td class="field-value">{address}</td>
+            </tr>
+            <tr>
+              <td class="field-label">Vốn đầu tư dự kiến:</td>
+              <td class="field-value"><span class="budget-tag">{budget}</span></td>
+            </tr>
+            <tr>
+              <td class="field-label">Thời gian đăng ký:</td>
+              <td class="field-value">{submitted_at}</td>
+            </tr>
+          </table>
+          <div style="padding-top: 16px;">
+            <div class="field-label" style="margin-bottom: 8px;">Lời nhắn / Câu hỏi của đối tác:</div>
+            <div class="message-box">{message}</div>
+          </div>
+          <div style="text-align: center;">
+            <a href="tel:{phone}" class="action-btn">📞 BẤM ĐỂ GỌI ĐỐI TÁC NGAY</a>
+          </div>
+        </div>
+        <div class="footer">
+          Email thông báo tự động từ hệ thống Website WEE TINI • Wee Fun, Wee Chill, Wee Slay
+        </div>
+      </div>
+    </body>
+    </html>
+    """
 
-        msg.attach(MIMEText(html_content, "html", "utf-8"))
-
-        server = smtplib.SMTP(smtp_server, smtp_port, timeout=15)
-        server.starttls()
-        server.login(smtp_user, smtp_password)
-        server.send_message(msg)
-        server.quit()
-        print(f"✅ [EMAIL ĐÃ GỬI THÀNH CÔNG] Tới: {receiver}")
+    try:
+        params = {
+            "from": from_email,
+            "to": [receiver],
+            "subject": f"[WEE TINI] 🔔 Đăng ký nhượng quyền: {name} - {phone}",
+            "html": html_content,
+        }
+        resp = resend.Emails.send(params)
+        email_id = resp.get("id") if isinstance(resp, dict) else getattr(resp, "id", resp)
+        print(f"✅ [RESEND ĐÃ GỬI THÀNH CÔNG] ID: {email_id} | Tới: {receiver}")
         return True
     except Exception as e:
-        print(f"❌ [LỖI GỬI EMAIL]: {e}")
+        print(f"❌ [LỖI GỬI EMAIL RESEND]: {e}")
         return False
 
 
